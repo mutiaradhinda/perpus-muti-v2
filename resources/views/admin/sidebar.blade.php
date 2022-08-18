@@ -37,7 +37,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
-              <i class="bi bi-house-door"></i>
+              <i class="fa fa-tachometer" aria-hidden="true"></i>
               <p>
                 Dashboard
               </p>
@@ -45,8 +45,8 @@
           </li>
 
           <li class="nav-item">
-            <a href="/admin" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+            <a href="{{ route('posts.index') }}" class="nav-link">
+              <i class="fa-solid fa-book"></i>
               <p>
                 Data Buku
                 <span class="right badge badge-danger"></span>
