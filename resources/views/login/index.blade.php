@@ -56,7 +56,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user" action="/login" method="post">
+                                    <form class="user" action="{{ url ('/login') }}" method="post">
                                         @csrf
                                         <div class="form-group">
                                             <input type="email" name="email" class="form-control form-control-user @error('email') is_invalid @enderror "
@@ -83,7 +83,7 @@
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                        <a class="small" href="/register">Create an Account!</a>
+                                        <a class="small" href="{{ url ('/register') }}">Create an Account!</a>
                                         
                                     </div>
                                 
