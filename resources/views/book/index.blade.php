@@ -1,16 +1,11 @@
-@extends('posts.layout')
+@extends('book.layout')
 
 @section('content')
 
-
-    <ol class="breadcrumb float-sm-left">
-        <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-        <li class="breadcrumb-item active">Data Buku</a></li>
-    </ol>
-    <div class="row" style="margin-top: 5rem;">
+    <div class="row" style="margin-top: 1rem;">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Data Buku</h2>
+                
             </div>
         </div>
     </div>
@@ -23,11 +18,11 @@
 
     <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="{{ route('posts.create') }}" class="btn btn-primary btm-sm">Create Buku</a>
+        <a href="{{ route('books.create') }}" class="btn btn-primary btm-sm">Create Buku</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered text-center" id="id" width="100%" cellspacing="0">
         <tr>
             <th>No</th>
             <th>Judul Buku</th>
@@ -37,7 +32,7 @@
             <th>Kategori</th>
             <th width="280px">Sinopsis</th>
             <th>Sampul</th>
-            <th width="280px">Action</th>
+            <th width="300px">Action</th>
         </tr>
         @foreach ($data as $key => $value)
         <tr>
@@ -50,11 +45,11 @@
             <td>{{ $value->sinopsis }}</td>
             <td><img src="/image/{{ $value->image }}" width="100px"></td>
             <td>
-        <form action="{{ route('posts.destroy',$value->id) }}" method="POST">
+        <form action="{{ route('books.destroy',$value->id) }}" method="POST">
      
-            <a class="btn btn-info" href="{{ route('posts.show',$value->id) }}">Show</a>
+            <a class="btn btn-info" href="{{ route('books.show',$value->id) }}">Show</a>
       
-            <a class="btn btn-primary" href="{{ route('posts.edit',$value->id) }}">Edit</a>
+            <a class="btn btn-primary" href="{{ route('books.edit',$value->id) }}">Edit</a>
      
                     @csrf
                     @method('DELETE')
@@ -65,6 +60,7 @@
         </tr>
         @endforeach
     </table>
+    </div>
 </div>
 </div>
     {!! $data->links() !!}

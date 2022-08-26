@@ -1,13 +1,13 @@
-@extends('posts.layout')
+@extends('book.layout')
 
 @section('content')
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="margin-top: 5rem;">
-    <h1 class="h2">Create Posts</h1>
-</div>
+
+    <h1 class="h2">Create Book</h1>
+
 
  <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="{{ route('posts.index') }}" class="btn btn-primary btn-sm">Kembali</a>
+        <a href="{{ route('books.index') }}" class="btn btn-primary btn-sm">Kembali</a>
     </div>
 
 @if ($errors->any())
@@ -22,7 +22,7 @@
 @endif
     
     <div class="card-body">
-    <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('books.store') }}" method="post" enctype="multipart/form-data">
         @csrf
 
      <div class="row">

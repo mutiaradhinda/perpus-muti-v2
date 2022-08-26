@@ -1,59 +1,64 @@
-@extends('posts.layout')
+@extends('book.layout')
 
 @section('content')
-    <div class="row" style="margin-top: 5rem;>
+   
+    <div class="row" style="margin-top: 1rem;">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Show</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('posts.index') }}">Kembali</a>
-            </div>
+            <div class="pull-left"></div>
         </div>
+     </div>
+     
+    <div class="card-header py-3">
+        <a href="{{ route('books.index') }}" class="btn btn-primary btm-sm">Kembali</a>
     </div>
+
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nama:</strong>
-                {{ $post->nama }}
+                <strong>Judul:</strong>
+                {{ $book->nama }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tahun Terbit:</strong>
-                {{ $post->tahun_terbit }}
+                {{ $book->tahun_terbit }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Penulis:</strong>
-                {{ $post->id_penulis }}
+                {{ $book->id_penulis }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Penerbit:</strong>
-                {{ $post->id_penerbit }}
+                {{ $book->id_penerbit }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Kategori:</strong>
-                {{ $post->id_kategori }}
+                {{ $book->id_kategori }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Sinopsis:</strong>
-                {{ $post->sinopsis }}
+                {{ $book->sinopsis }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Image:</strong>
-                <img src="/image/{{ $post->image }}" width="500px">
+                <img src="/image/{{ $book->image }}" width="300px">
             </div>
         </div>
     </div>
+
+    </div>
+    
+
 @endsection

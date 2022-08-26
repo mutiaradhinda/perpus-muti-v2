@@ -1,10 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class BookController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = Post::latest()->paginate(5);
+        $data = Book::latest()->paginate(5);
 
-        return view('posts.index',compact('data'))
+        return view('book.index',compact('data'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('book.create');
     }
 
     /**
@@ -57,9 +57,9 @@ class PostController extends Controller
             $input['image'] = "$profileImage";
     }
 
-        Post::create($input);
+        Book::create($input);
 
-        return redirect()->route('posts.index')
+        return redirect()->route('books.index')
                         ->with('success','Post created successfully.');
     }
 
@@ -69,9 +69,9 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Book $book)
     {
-        return view('posts.show',compact('post'));
+        return view('book.show',compact('book'));
     }
 
     /**
@@ -80,9 +80,9 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Book $book)
     {
-        return view('posts.edit',compact('post'));
+        return view('book.edit',compact('book'));
     }
 
     /**
@@ -92,7 +92,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Book $book)
     {
         $request->validate([
             'nama' => 'required|max:255',
@@ -100,7 +100,7 @@ class PostController extends Controller
             // 'id_penulis' => 'required',
             // 'id_penerbit' => 'required',
             // 'id_kategori' => 'required',
-            'sinopsis' => '',
+            'sinopsis' => 'required',
         ]);
 
         $input = $request->all();
@@ -114,9 +114,9 @@ class PostController extends Controller
             unset($input['image']);
         }
 
-        $post->update($input);
+        $book->update($input);
 
-        return redirect()->route('posts.index')
+        return redirect()->route('books.index')
                         ->with('success','Post updated successfully');
     }
 
@@ -126,11 +126,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Book $book)
     {
-        $post->delete();
+        $book->delete();
 
-        return redirect()->route('posts.index')
+        return redirect()->route('books.index')
                         ->with('success','Post deleted successfully');
     }
 }
