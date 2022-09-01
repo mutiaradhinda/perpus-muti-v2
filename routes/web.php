@@ -5,6 +5,9 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\PublisherController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +60,12 @@ Route::get('/admin', [AdminController::class, 'index']);
 
 //post
 Route::resource('books', BookController::class );
+
+//penulis
+Route::resource('authors', AuthorController::class );
+
+//penerbit
+Route::resource('publishers', PublisherController::class );
+
+//kategori
+Route::resource('categories', CategoryController::class );

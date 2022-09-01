@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenerbitTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePenerbitTable extends Migration
      */
     public function up()
     {
-        Schema::create('penerbit', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreatePenerbitTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penerbit');
+        Schema::dropIfExists('categories');
     }
 }
