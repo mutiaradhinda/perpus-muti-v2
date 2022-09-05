@@ -32,7 +32,7 @@
             <th>Kategori</th>
             <th width="280px">Sinopsis</th>
             <th>Sampul</th>
-            <th width="300px">Action</th>
+            <th width="400px">Action</th>
         </tr>
         @foreach ($data as $key => $value)
         <tr>

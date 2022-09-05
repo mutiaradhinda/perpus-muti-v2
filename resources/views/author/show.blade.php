@@ -2,15 +2,20 @@
 
 @section('content')
    
-    <div class="row" style="margin-top: 1rem;">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left"></div>
-        </div>
-     </div>
-     
-    <div class="card-header py-3">
-        <a href="{{ route('authors.index') }}" class="btn btn-primary btm-sm">Kembali</a>
-    </div>
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        
+        <ul class="nav-item">
+            <li class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i>
+            </li>
+        </ul>
+    </nav>
+
+    <ul class="navbar-nav ml-auto">
+        <form action="/logout" method="post">
+            @csrf
+        <a href="{{ route('authors.index') }}" class="btn btn-primary btm-smarrow-in-right">Kembali</a>
+        </form>
+    </ul>
 
 
     <div class="row">

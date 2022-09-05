@@ -8,6 +8,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PeminjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,3 +70,6 @@ Route::resource('publishers', PublisherController::class );
 
 //kategori
 Route::resource('categories', CategoryController::class );
+
+//peminjam
+Route::resource('peminjaman', PeminjamanController::class );

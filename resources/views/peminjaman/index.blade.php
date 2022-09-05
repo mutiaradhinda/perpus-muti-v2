@@ -1,4 +1,4 @@
-@extends('category.layout')
+@extends('book.layout')
 
 @section('content')
 
@@ -18,26 +18,31 @@
 
     <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="{{ route('categories.create') }}" class="btn btn-primary btm-sm">Create</a>
+        <a href="{{ route('books.create') }}" class="btn btn-primary btm-sm">Create Buku</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered text-center" id="id" width="100%" cellspacing="0">
         <tr>
             <th>No</th>
+            <th>Judul Buku</th>
+            <th>Tahun Terbit</th>
+            <th>Penulis</th>
+            <th>Penerbit</th>
             <th>Kategori</th>
-            <th width="300px">Action</th>
+            <th width="280px">Sinopsis</th>
+            <th>Sampul</th>
+            <th width="400px">Action</th>
         </tr>
-        @foreach ($data as $key => $value)
+       
         <tr>
-            <td>{{ ++$i }}</td>
-            <td>{{ $value->nama }}</td>
+    
             <td>
-        <form action="{{ route('categories.destroy',$value->id) }}" method="POST">
+        <form action="{{ route('books.destroy',$value->id) }}" method="POST">
      
-            <a class="btn btn-info" href="{{ route('categories.show',$value->id) }}">Show</a>
+            <a class="btn btn-info" href="{{ route('books.show',$value->id) }}">Show</a>
       
-            <a class="btn btn-primary" href="{{ route('categories.edit',$value->id) }}">Edit</a>
+            <a class="btn btn-primary" href="{{ route('books.edit',$value->id) }}">Edit</a>
      
                     @csrf
                     @method('DELETE')

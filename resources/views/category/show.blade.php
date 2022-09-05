@@ -12,34 +12,24 @@
         <a href="{{ route('categories.index') }}" class="btn btn-primary btm-sm">Kembali</a>
     </div>
 
-
+    <section class="content">
+    <div class="card-body">
+    <table class="table table-bordered table-striped">
+    <tr>
+    <th width="500px";
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nama Penulis:</strong>
+                <strong>Kategori:</strong>
                 {{ $category->nama }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Alamat:</strong>
-                {{ $category->alamat }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Telepon:</strong>
-                {{ $category->telepon}}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Email:</strong>
-                {{ $category->email }}
-            </div>
+            </td>
         </div>
     </div>
+</th>
+</tr>
 </div>
-    
+</section>
+</table>
+</div>
 
 @endsection
