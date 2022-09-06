@@ -31,12 +31,12 @@
 
 
 <!-- Navbar -->
-  @include('publisher/admin/header')
+  @include('peminjaman/admin/header')
 <!-- /.navbar -->
 
 
 <!-- Main Sidebar Container -->
-  @include('publisher/admin/sidebar')
+  @include('peminjaman/admin/sidebar')
 <!-- /.sidebar -->
 
   <!-- Content Wrapper. Contains page content -->
@@ -63,7 +63,7 @@
     <section class="content">
       <div class="container-fluid">
         <div class="card">
-          <h5 class="card-header bg-success">Data Penerbit</h5>
+          <h5 class="card-header bg-success">Data Peminjam</h5>
         @yield('content')
       </div>
     </div>
@@ -86,7 +86,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-    @include('publisher/admin/footer')
+    @include('peminjaman/admin/footer')
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

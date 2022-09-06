@@ -72,4 +72,4 @@ Route::resource('publishers', PublisherController::class );
 Route::resource('categories', CategoryController::class );
 
 //peminjam
-Route::resource('peminjaman', PeminjamanController::class );
+Route::resource('peminjamen', PeminjamanController::class );
