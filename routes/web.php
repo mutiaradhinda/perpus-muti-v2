@@ -7,7 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\PublisherController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PeminjamanController;
 
 /*
@@ -60,7 +60,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/admin', [AdminController::class, 'index']);
 
 //post
-Route::resource('books', BookController::class );
+Route::resource('book', BookController::class );
 
 //penulis
 Route::resource('authors', AuthorController::class );
@@ -69,7 +69,7 @@ Route::resource('authors', AuthorController::class );
 Route::resource('publishers', PublisherController::class );
 
 //kategori
-Route::resource('categories', CategoryController::class );
+Route::resource('kategori', KategoriController::class );
 
 //peminjam
 Route::resource('peminjamen', PeminjamanController::class );

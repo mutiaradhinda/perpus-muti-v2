@@ -1,4 +1,4 @@
-@extends('book.layout')
+@extends('peminjaman.layout')
 
 @section('content')
    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 borde-bottom">
@@ -6,7 +6,7 @@
 
 <div class="card shadow mb-4">
 <div class="card-header py-3">
-    <a href="{{ route('books.index') }}" class="btn btn-primary btn-sm">Kembali</a>
+    <a href="{{ route('peminjamen.index') }}" class="btn btn-primary btn-sm">Kembali</a>
 </div>
 
 @if ($errors->any())
@@ -21,51 +21,51 @@
     @endif
 
 <div class="card-body">
-<form action="{{ route('books.update',$book->id) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('peminjamen.update',$peminjaman->id) }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Judul Buku:</strong>
-                <input type="text" name="nama" class="form-control" value="{{ old('nama',$book->nama) }}" autofocus>
+                <strong>Nama:</strong>
+                <input type="text" name="nama" class="form-control" value="{{ old('nama',$peminjaman->nama) }}" autofocus>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tahun Terbit:</strong>
-                <input type="text" name="tahun_terbit" class="form-control" value="{{ old('nama',$book->tahun_terbit) }}">
+                <strong>Buku:</strong>
+                <input type="text" name="buku" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Penulis:</strong>
-                <input type="text" name="penulis" class="form-control">
+                <strong>Anggota:</strong>
+                <input type="text" name="anggota" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Penerbit:</strong>
-                <input type="text" name="penerbit" class="form-control">
+                <strong>Tanggal Pinjam:</strong>
+                <input type="Date" name="tanggal_pinjam" class="form-control" value="{{ old('nama',$peminjaman->tanggal_pinjam) }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Kategori:</strong>
-                <input type="text" name="kategori" class="form-control">
+                <strong>Tanggal Kembali:</strong>
+                <input type="Date" name="tanggal_kembali" class="form-control" value="{{ old('nama',$peminjaman->tanggal_kembali) }}">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Sinopsis:</strong>
-                <textarea class="form-control" style="height:150px" name="sinopsis" value="{{ old('nama',$book->sinopsis) }}"></textarea>
+                <strong>Denda:</strong>
+                <input type="text" name="denda" class="form-control" value="{{ old('nama',$peminjaman->denda) }}">
             </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Sampul:</strong>
-                <input type="file" name="image" class="form-control" value="{{ old('nama',$book->id) }}">
-                <img src="/image/{{ $book->image }}" width="300px">
+                <strong>Status:</strong>
+                <input type="text" name="status" class="form-control" value="{{ old('nama',$peminjaman->status) }}">
             </div>
         </div>
         </div>

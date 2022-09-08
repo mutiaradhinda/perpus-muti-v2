@@ -2,9 +2,6 @@
 
 @section('content')
 
-    <h1 class="h2">Create Data Penulis</h1>
-
-
  <div class="card shadow mb-4">
     <div class="card-header py-3">
         <a href="{{ route('authors.index') }}" class="btn btn-primary btn-sm">Kembali</a>

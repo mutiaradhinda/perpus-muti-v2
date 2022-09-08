@@ -89,11 +89,12 @@ class PeminjamanController extends Controller
     {
         $request->validate([
             'nama' => 'required|max:255',
-            'tahun_terbit' => 'required',
-            // 'id_penulis' => 'required',
-            // 'id_penerbit' => 'required',
-            // 'id_kategori' => 'required',
-            'sinopsis' => 'required',
+            // 'id_buku' => 'required',
+            // 'id_anggota' => 'required',
+            'tanggal_pinjam' => 'required',
+            'tanggal_kembali' => 'required',
+            'denda' => 'required',
+            'status' => 'required'
         ]);
 
         $input = $request->all();

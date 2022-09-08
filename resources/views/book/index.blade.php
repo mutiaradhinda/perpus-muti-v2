@@ -18,7 +18,7 @@
 
     <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="{{ route('books.create') }}" class="btn btn-primary btm-sm">Create Buku</a>
+        <a href="{{ route('book.create') }}" class="btn btn-primary btm-sm">Create Buku</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -34,22 +34,22 @@
             <th>Sampul</th>
             <th width="400px">Action</th>
         </tr>
-        @foreach ($data as $key => $value)
+        @foreach ($buku as $value)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $value->id }}</td>
             <td>{{ $value->nama }}</td>
             <td>{{ $value->tahun_terbit }}</td>
-            <td>{{ $value->id_penulis }}</td>
-            <td>{{ $value->id_penerbit }}</td>
-            <td>{{ $value->id_kategori }}</td>
+            <td>{{ @$value->author->nama }}</td>
+            <td>{{ @$value->publisher->nama }}</td>
+            <td>{{ $value->kategori->kategori }}</td>
             <td>{{ $value->sinopsis }}</td>
             <td><img src="/image/{{ $value->image }}" width="100px"></td>
             <td>
-        <form action="{{ route('books.destroy',$value->id) }}" method="POST">
+        <form action="{{ route('book.destroy',$value->id) }}" method="POST">
      
-            <a class="btn btn-info" href="{{ route('books.show',$value->id) }}">Show</a>
+            <a class="btn btn-info" href="{{ route('book.show',$value->id) }}">Show</a>
       
-            <a class="btn btn-primary" href="{{ route('books.edit',$value->id) }}">Edit</a>
+            <a class="btn btn-primary" href="{{ route('book.edit',$value->id) }}">Edit</a>
      
                     @csrf
                     @method('DELETE')
@@ -63,5 +63,5 @@
     </div>
 </div>
 </div>
-    {!! $data->links() !!}
+    {!! $buku->links() !!}
 @endsection

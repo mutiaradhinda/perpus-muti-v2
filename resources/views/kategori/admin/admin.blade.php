@@ -31,12 +31,12 @@
 
 
 <!-- Navbar -->
-  @include('category/admin/header')
+  @include('kategori/admin/header')
 <!-- /.navbar -->
 
 
 <!-- Main Sidebar Container -->
-  @include('category/admin/sidebar')
+  @include('kategori/admin/sidebar')
 <!-- /.sidebar -->
 
   <!-- Content Wrapper. Contains page content -->
@@ -86,7 +86,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-    @include('category/admin/footer')
+    @include('kategori/admin/footer')
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

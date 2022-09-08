@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Author extends Model
+class Kategori extends Model
 {
-   
-    protected $table = "authors";
-    protected $primaryKey = "id";
-    protected $fillable = [
-        'nama', 'alamat', 'telepon', 'email'
-    ];
+
+     protected $table = "kategori";
+     protected $primaryKey = "id";
+     protected $fillable = ['id', 'kategori'];
+    
 
      public function book()
     {

@@ -2,6 +2,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Kategori;
+use App\Models\Author;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -13,10 +16,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        $data = Book::latest()->paginate(5);
+        $buku = Book::with('kategori', 'author', 'publisher')->latest()->paginate(5);
 
-        return view('book.index',compact('data'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('book.index',compact('buku'));
     }
 
     /**
@@ -26,7 +28,10 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('book.create');
+        $k = Kategori::all();
+        $a = Author::all();
+        $p = Publisher::all();
+        return view('book.create',compact('k', 'a', 'p'));
     }
 
     /**
@@ -59,7 +64,7 @@ class BookController extends Controller
 
         Book::create($input);
 
-        return redirect()->route('books.index')
+        return redirect()->route('book.index')
                         ->with('success','Post created successfully.');
     }
 
@@ -82,7 +87,10 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('book.edit',compact('book'));
+        $k = Kategori::all();
+        $a = Author::all();
+        $p = Publisher::all();
+        return view('book.edit',compact('k', 'a', 'p'));
     }
 
     /**
@@ -116,7 +124,7 @@ class BookController extends Controller
 
         $book->update($input);
 
-        return redirect()->route('books.index')
+        return redirect()->route('book.index')
                         ->with('success','Post updated successfully');
     }
 
@@ -130,7 +138,7 @@ class BookController extends Controller
     {
         $book->delete();
 
-        return redirect()->route('books.index')
+        return redirect()->route('book.index')
                         ->with('success','Post deleted successfully');
     }
 }

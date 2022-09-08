@@ -1,10 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = Category::latest()->paginate(5);
+        $data = Kategori::latest()->paginate(5);
 
-        return view('category.index',compact('data'))
+        return view('kategori.index',compact('data'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view('kategori.create');
     }
 
     /**
@@ -38,15 +38,15 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-            'nama' => 'required|max:255',
+            'kategori' => 'required',
 
         ]);
 
          $input = $request->all();
   
-        Category::create($input);
+        Kategori::create($input);
 
-        return redirect()->route('categories.index')
+        return redirect()->route('kategori.index')
                         ->with('success','Post created successfully.');
     }
 
@@ -56,9 +56,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Kategori $kategori)
     {
-        return view('category.show',compact('category'));
+        return view('kategori.show',compact('kategori'));
     }
 
     /**
@@ -67,9 +67,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Kategori $kategori)
     {
-        return view('category.edit',compact('category'));
+        return view('kategori.edit',compact('kategori'));
     }
 
     /**
@@ -79,19 +79,19 @@ class CategoryController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Kategori $kategori)
     {
         $request->validate([
-            'nama' => 'required|max:255',
+            'kategori' => 'required|max:255',
             
         ]);
 
         $input = $request->all();
   
 
-        $category->update($input);
+        $kategori->update($input);
 
-        return redirect()->route('categories.index')
+        return redirect()->route('kategori.index')
                         ->with('success','Post updated successfully');
     }
 
@@ -101,11 +101,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Kategori $kategori)
     {
-        $category->delete();
+        $kategori->delete();
 
-        return redirect()->route('categories.index')
+        return redirect()->route('kategori.index')
                         ->with('success','Post deleted successfully');
     }
 }
+5

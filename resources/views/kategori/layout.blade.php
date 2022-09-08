@@ -1,4 +1,4 @@
-@extends('category.admin.admin')
+@extends('kategori.admin.admin')
 
 @section('content')
 <!DOCTYPE html>
@@ -10,9 +10,9 @@
 <body>
 
 
-@include('category/admin/header')
-@include('category/admin/sidebar')
-@include('category/admin/footer')
+@include('kategori/admin/header')
+@include('kategori/admin/sidebar')
+@include('kategori/admin/footer')
 
 <div class="container">
     @yield('content')

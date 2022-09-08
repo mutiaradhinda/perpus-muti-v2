@@ -1,4 +1,4 @@
-@extends('category.layout')
+@extends('kategori.layout')
 
 @section('content')
    
@@ -9,7 +9,7 @@
      </div>
      
     <div class="card-header py-3">
-        <a href="{{ route('categories.index') }}" class="btn btn-primary btm-sm">Kembali</a>
+        <a href="{{ route('kategori.index') }}" class="btn btn-primary btm-sm">Kembali</a>
     </div>
 
     <section class="content">
@@ -21,7 +21,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Kategori:</strong>
-                {{ $category->nama }}
+                {{ $kategori->kategori }}
             </td>
         </div>
     </div>

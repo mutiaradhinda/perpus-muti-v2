@@ -48,7 +48,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('books.index') }}" class="nav-link">
+            <a href="{{ route('book.index') }}" class="nav-link">
               <i class="fa-solid fa-book"></i>
               <p>
                 Data Buku
@@ -79,7 +79,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('categories.index') }}" class="nav-link">
+            <a href="{{ route('kategori.index') }}" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
                 Kategori

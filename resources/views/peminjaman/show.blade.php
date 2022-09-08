@@ -1,4 +1,4 @@
-@extends('book.layout')
+@extends('peminjaman.layout')
 
 @section('content')
    
@@ -9,7 +9,7 @@
      </div>
      
     <div class="card-header py-3">
-        <a href="{{ route('books.index') }}" class="btn btn-primary btm-sm">Kembali</a>
+        <a href="{{ route('peminjamen.index') }}" class="btn btn-primary btm-sm">Kembali</a>
     </div>
 
 
@@ -17,48 +17,47 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Judul:</strong>
-                {{ $book->nama }}
+                {{ $peminjaman->nama }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tahun Terbit:</strong>
-                {{ $book->tahun_terbit }}
+                <strong>Buku:</strong>
+                {{ $peminjaman->id_buku }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Penulis:</strong>
-                {{ $book->id_penulis }}
+                <strong>Anggota:</strong>
+                {{ $peminjaman->id_anggota }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Penerbit:</strong>
-                {{ $book->id_penerbit }}
+                <strong>Tanggal Pinjam:</strong>
+                {{ $peminjaman->tanggal_pinjam}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Kategori:</strong>
-                {{ $book->id_kategori }}
+                <strong>Tanggal Kembali:</strong>
+                {{ $peminjaman->tanggal_kembali }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Sinopsis:</strong>
-                {{ $book->sinopsis }}
+                <strong>Denda:</strong>
+                {{ $peminjaman->denda }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Image:</strong>
-                <img src="/image/{{ $book->image }}" width="300px">
+                <strong>Status:</strong>
+                {{ $peminjaman->status }}
             </div>
         </div>
     </div>
-
-    </div>
+</div>
     
 
 @endsection
