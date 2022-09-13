@@ -2,6 +2,10 @@
 
 @section('content')
 
+<div class="card card-primary">
+    <div class="card-header">
+        <h2 class="card-title">Create Buku</h2>
+    </div>
  <div class="card shadow mb-4">
     <div class="card-header py-3">
         <a href="{{ route('book.index') }}" class="btn btn-primary btn-sm">Kembali</a>

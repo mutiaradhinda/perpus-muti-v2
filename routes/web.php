@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,3 +74,6 @@ Route::resource('kategori', KategoriController::class );
 
 //peminjam
 Route::resource('peminjamen', PeminjamanController::class );
+
+//user
+Route::resource('penggunas', PenggunaController::class );

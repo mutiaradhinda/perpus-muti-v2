@@ -31,12 +31,12 @@
 
 
 <!-- Navbar -->
-  @include('publisher/admin/header')
+  @include('pengguna/admin/header')
 <!-- /.navbar -->
 
 
 <!-- Main Sidebar Container -->
-  @include('publisher/admin/sidebar')
+  @include('pengguna/admin/sidebar')
 <!-- /.sidebar -->
 
   <!-- Content Wrapper. Contains page content -->
@@ -63,6 +63,7 @@
     <section class="content">
       <div class="container-fluid">
         <div class="card">
+          <h5 class="card-header bg-success">User</h5>
         @yield('content')
       </div>
     </div>
@@ -85,7 +86,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-    @include('publisher/admin/footer')
+    @include('pengguna/admin/footer')
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

@@ -109,4 +109,3 @@ class KategoriController extends Controller
                         ->with('success','Post deleted successfully');
     }
 }
-5

@@ -1,9 +1,10 @@
 @extends('author.layout')
 
 @section('content')
-   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 borde-bottom">
-    
-</div>
+   <div class="card card-primary">
+    <div class="card-header">
+        <h2 class="card-title">Edit Data Penulis</h2>
+    </div>
 
 <div class="card shadow mb-4">
 <div class="card-header py-3">

@@ -63,7 +63,6 @@
     <section class="content">
       <div class="container-fluid">
         <div class="card">
-          <h5 class="card-header bg-success">Data Penulis</h5>
         @yield('content')
       </div>
     </div>
