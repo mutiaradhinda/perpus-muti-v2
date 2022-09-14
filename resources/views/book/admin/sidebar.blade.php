@@ -45,7 +45,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('book.index') }}" class="nav-link">
+            <a href="/book" class="nav-link">
               <i class="fa-solid fa-book"></i>
               <p>
                 Data Buku
