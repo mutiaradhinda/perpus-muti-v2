@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Publisher;
 use Illuminate\Http\Request;
+use PDF;
 
 class PublisherController extends Controller
 {
@@ -13,10 +14,18 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        $data = Publisher::latest()->paginate(5);
+        $publisher = Publisher::latest()->paginate(5);
 
-        return view('publisher.index',compact('data'))
+        return view('publisher.index',compact('publisher'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function pdf()
+    {
+        $publisher = Publisher::get();
+ 
+        $pdf = PDF::loadview('publisher.publisher_pdf',['publisher'=>$publisher]);
+        return $pdf->stream();
     }
 
     /**

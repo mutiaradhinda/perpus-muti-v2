@@ -24,6 +24,7 @@
     <div class="card shadow mb-4">
     <div class="card-header py-3">
         <a href="{{ route('authors.create') }}" class="btn btn-primary btm-sm">Create</a>
+        <a href="{{ url('export') }}" target="_blank" class="btn btn-success btm-sm">Export PDF</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -36,7 +37,7 @@
             <th>Email</th>
             <th width="300px">Action</th>
         </tr>
-        @foreach ($data as $key => $value)
+        @foreach ($author as $key => $value)
         <tr>
             <td>{{ ++$i }}</td>
             <td>{{ $value->nama }}</td>
@@ -62,5 +63,5 @@
     </div>
 </div>
 </div>
-    {!! $data->links() !!}
+    {!! $author->links() !!}
 @endsection

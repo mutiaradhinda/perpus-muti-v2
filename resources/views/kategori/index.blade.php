@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="card card-primary">
+    <div class="card-header">
+        <h2 class="card-title">Data Penulis</h2>
+    </div>
+
     <div class="row" style="margin-top: 1rem;">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -19,6 +24,7 @@
     <div class="card shadow mb-4">
     <div class="card-header py-3">
         <a href="{{ route('kategori.create') }}" class="btn btn-primary btm-sm">Create</a>
+        <a href="{{ url('data') }}" target="_blank" class="btn btn-success btm-sm">Export PDF</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -28,7 +34,7 @@
             <th>Kategori</th>
             <th width="300px">Action</th>
         </tr>
-        @foreach ($data as $key => $value)
+        @foreach ($kategori as $key => $value)
         <tr>
             <td>{{ ++$i }}</td>
             <td>{{ $value->kategori }}</td>
@@ -51,5 +57,5 @@
     </div>
 </div>
 </div>
-    {!! $data->links() !!}
+    {!! $kategori->links() !!}
 @endsection

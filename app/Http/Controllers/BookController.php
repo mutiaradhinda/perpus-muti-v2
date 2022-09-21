@@ -6,6 +6,7 @@ use App\Models\Kategori;
 use App\Models\Author;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
+use PDF;
 
 class BookController extends Controller
 {
@@ -16,9 +17,17 @@ class BookController extends Controller
      */
     public function index()
     {
-        $buku = Book::with('kategori', 'author', 'publisher')->latest()->paginate(5);
+        $buku = Book::with('author', 'publisher', 'kategori')->paginate(2);
 
-        return view('book.index',compact('buku'));
+        return view('book.index', compact('buku'));
+    }
+
+    public function pdf()
+    {
+        $buku = Book::get();
+ 
+        $pdf = PDF::loadview('book.buku_pdf',['buku'=>$buku]);
+        return $pdf->stream();
     }
 
     /**

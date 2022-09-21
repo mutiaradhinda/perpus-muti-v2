@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use PDF;
 
 class KategoriController extends Controller
 {
@@ -13,11 +14,20 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $data = Kategori::latest()->paginate(5);
+        $kategori = Kategori::latest()->paginate(5);
 
-        return view('kategori.index',compact('data'))
+        return view('kategori.index',compact('kategori'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
+    public function pdf()
+    {
+        $kategori = Kategori::get();
+ 
+        $pdf = PDF::loadview('kategori.kategori_pdf',['kategori'=>$kategori]);
+        return $pdf->stream();
+    }
+
 
     /**
      * Show the form for creating a new resource.

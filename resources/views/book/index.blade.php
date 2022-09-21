@@ -24,6 +24,7 @@
     <div class="card shadow mb-4">
     <div class="card-header py-3">
         <a href="{{ route('book.create') }}" class="btn btn-primary btm-sm">Create Buku</a>
+        <a href="{{ url('pdf') }}" target="_blank" class="btn btn-success btm-sm">Export Data</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -41,7 +42,7 @@
         </tr>
         @foreach ($buku as $value)
         <tr>
-            <td>{{ $value->id }}</td>
+            <td>{{ $loop->iteration }}</td>
             <td>{{ $value->nama }}</td>
             <td>{{ $value->tahun_terbit }}</td>
             <td>{{ @$value->author->nama }}</td>

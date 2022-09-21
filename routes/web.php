@@ -61,16 +61,20 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/admin', [AdminController::class, 'index']);
 
 //post
-Route::resource('book', BookController::class );
+Route::resource('book', BookController::class);
+Route::get('/pdf', [BookController::class, 'pdf']);    
 
 //penulis
 Route::resource('authors', AuthorController::class );
+Route::get('/export', [AuthorController::class, 'pdf']);
 
 //penerbit
 Route::resource('publishers', PublisherController::class );
+Route::get('/penerbit', [PublisherController::class, 'pdf']);
 
 //kategori
 Route::resource('kategori', KategoriController::class );
+Route::get('/data', [KategoriController::class, 'pdf']);
 
 //peminjam
 Route::resource('peminjamen', PeminjamanController::class );

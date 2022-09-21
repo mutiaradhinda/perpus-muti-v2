@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use Illuminate\Http\Request;
+use PDF;
 
 class AuthorController extends Controller
 {
@@ -13,10 +14,18 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $data = Author::latest()->paginate(5);
+        $author = Author::latest()->paginate(5);
 
-        return view('author.index',compact('data'))
+        return view('author.index',compact('author'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+     public function pdf()
+    {
+        $author = Author::get();
+ 
+        $pdf = PDF::loadview('author.author_pdf',['author'=>$author]);
+        return $pdf->stream();
     }
 
     /**

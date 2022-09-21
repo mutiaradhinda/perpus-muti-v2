@@ -10,7 +10,6 @@
 <div class="card-header py-3">
     <a href="{{ route('book.index') }}" class="btn btn-primary btn-sm">Kembali</a>
 </div>
-        <h2 class="card-title">Detail Alumni</h2>
     </div>
     <div class="card-body">
         <table class="table table-bordered">
@@ -35,8 +34,6 @@
                 <td>{{ $book->kategori->kategori }}</td>
             </tr>
             <tr>
-<<<<<<< HEAD
-=======
                 <th style="width: 180px">Kategori</th>
                 <td>{{ $book->kategori->kategori }}</td>
             </tr>
