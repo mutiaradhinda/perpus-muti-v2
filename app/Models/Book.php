@@ -27,4 +27,9 @@ class Book extends Model
     {
         return $this->belongsTo(Publisher::class, 'id_penerbit', 'id');
     }
+
+    public function peminjaman()
+    {
+        return $this->hasOne('peminjaman::class');
+    }
 }

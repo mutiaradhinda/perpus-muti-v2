@@ -32,8 +32,15 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Buku:</strong>
-                <input type="text" name="buku" class="form-control" placeholder="">
             </div>
+            <div class="form-group">
+            <select class="form-control select2" style="width: 100%;" name="id_buku" id="id_buku">
+            <option disabled value>Pilih Buku</option>
+            @foreach($b as $item)
+            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+            @endforeach
+        </select>
+        </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">

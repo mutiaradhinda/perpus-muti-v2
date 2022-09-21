@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Peminjaman;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class PeminjamanController extends Controller
@@ -13,10 +14,9 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        $data = Peminjaman::latest()->paginate(5);
+        $data = Peminjaman::with('book')->paginate(5);
 
-        return view('peminjaman.index',compact('data'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('peminjaman.index',compact('data'));
     }
 
     /**
@@ -26,7 +26,8 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        return view('peminjaman.create');
+        $b = Book::all();
+        return view('peminjaman.create', compact('b'));
     }
 
     /**
@@ -75,7 +76,8 @@ class PeminjamanController extends Controller
      */
     public function edit(Peminjaman $peminjaman)
     {
-        return view('peminjaman.edit',compact('peminjaman'));
+        $p = Peminjam::all();
+        return view('peminjaman.edit',compact('p'));
     }
 
     /**
