@@ -86,7 +86,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="mb-3">
   <label for="formFile" class="form-label">Sampul</label>
-  <input class="form-control" type="file" id="formFile">
+  <input class="form-control" name="image" type="file" id="formFile">
 </div>
         </div>
         </div>

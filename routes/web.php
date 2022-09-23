@@ -62,7 +62,8 @@ Route::get('/admin', [AdminController::class, 'index']);
 
 //post
 Route::resource('book', BookController::class);
-Route::get('/pdf', [BookController::class, 'pdf']);    
+Route::get('/pdf', [BookController::class, 'pdf']);
+Route::get('/excel', [BookController::class, 'excel'])->name('book');    
 
 //penulis
 Route::resource('authors', AuthorController::class );

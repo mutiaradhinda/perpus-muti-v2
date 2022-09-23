@@ -24,7 +24,8 @@
     <div class="card shadow mb-4">
     <div class="card-header py-3">
         <a href="{{ route('book.create') }}" class="btn btn-primary btm-sm">Create Buku</a>
-        <a href="{{ url('pdf') }}" target="_blank" class="btn btn-success btm-sm">Export Data</a>
+        <a href="{{ url('pdf') }}" target="_blank" class="btn btn-danger btm-sm">Export PDF</a>
+         <a href="{{ url('excel') }}" target="_blank" class="btn btn-success btm-sm">Export Excel</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">

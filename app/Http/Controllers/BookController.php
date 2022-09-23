@@ -6,6 +6,9 @@ use App\Models\Kategori;
 use App\Models\Author;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
+use App\Exports\BukuExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\StoreBookRequest;
 use PDF;
 
 class BookController extends Controller
@@ -29,6 +32,12 @@ class BookController extends Controller
         $pdf = PDF::loadview('book.buku_pdf',['buku'=>$buku]);
         return $pdf->stream();
     }
+
+     public function excel()
+    {
+        return Excel::download(new BukuExport, 'book.xlsx');
+    }
+        
 
     /**
      * Show the form for creating a new resource.
