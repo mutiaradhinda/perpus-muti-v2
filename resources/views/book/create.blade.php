@@ -82,13 +82,13 @@
             <div class="form-group">
                 <strong>Sinopsis:</strong>
                 <textarea class="form-control" style="height:150px" name="sinopsis" placeholder=""></textarea>
-            </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="mb-3">
-  <label for="formFile" class="form-label">Sampul</label>
-  <input class="form-control" name="image" type="file" id="formFile">
-</div>
         </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Image:</strong>
+                <input type="file" name="image" class="form-control" placeholder="image">
+            </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
                 <button type="submit" class="btn btn-primary">Simpan</button>

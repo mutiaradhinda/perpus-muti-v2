@@ -9,6 +9,7 @@ class Book extends Model
 {
     protected $table = "book";
     protected $primaryKey = "id";
+    protected $timestamp = false;
     protected $fillable = [
         'nama', 'tahun_terbit', 'id_penulis', 'id_penerbit', 'id_kategori', 'sinopsis', 'image'
     ];
@@ -28,8 +29,4 @@ class Book extends Model
         return $this->belongsTo(Publisher::class, 'id_penerbit', 'id');
     }
 
-    public function peminjaman()
-    {
-        return $this->hasOne('peminjaman::class');
-    }
 }

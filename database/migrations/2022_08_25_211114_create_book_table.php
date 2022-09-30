@@ -25,7 +25,7 @@ class CreateBookTable extends Migration
             $table->timestamps();
         });
     }
-
+                                                                          []
     /**
      * Reverse the migrations.
      *

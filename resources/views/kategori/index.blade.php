@@ -4,7 +4,7 @@
 
 <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Data Penulis</h2>
+        <h2 class="card-title">Data Kategori</h2>
     </div>
 
     <div class="row" style="margin-top: 1rem;">
@@ -24,7 +24,8 @@
     <div class="card shadow mb-4">
     <div class="card-header py-3">
         <a href="{{ route('kategori.create') }}" class="btn btn-primary btm-sm">Create</a>
-        <a href="{{ url('data') }}" target="_blank" class="btn btn-success btm-sm">Export PDF</a>
+        <a href="{{ url('data') }}" target="_blank" class="btn btn-danger btm-sm">Export PDF</a>
+        <a href="{{ url('data kategori') }}" target="_blank" class="btn btn-success btm-sm">Export Excel</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">

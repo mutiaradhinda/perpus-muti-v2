@@ -8,7 +8,6 @@ use App\Models\Publisher;
 use Illuminate\Http\Request;
 use App\Exports\BukuExport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Requests\StoreBookRequest;
 use PDF;
 
 class BookController extends Controller
@@ -35,7 +34,7 @@ class BookController extends Controller
 
      public function excel()
     {
-        return Excel::download(new BukuExport, 'book.xlsx');
+        return Excel::download(new BukuExport, 'buku.xlsx');
     }
         
 

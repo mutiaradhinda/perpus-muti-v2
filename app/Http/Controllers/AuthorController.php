@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use Illuminate\Http\Request;
+use App\Exports\PenulisExport;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
 class AuthorController extends Controller
@@ -26,6 +28,11 @@ class AuthorController extends Controller
  
         $pdf = PDF::loadview('author.author_pdf',['author'=>$author]);
         return $pdf->stream();
+    }
+
+    public function excel()
+    {
+        return Excel::download(new PenulisExport, 'penulis.xlsx');
     }
 
     /**

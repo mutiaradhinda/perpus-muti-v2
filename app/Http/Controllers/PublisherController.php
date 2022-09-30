@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Publisher;
 use Illuminate\Http\Request;
+use App\Exports\PenerbitExport;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
 class PublisherController extends Controller
@@ -26,6 +28,11 @@ class PublisherController extends Controller
  
         $pdf = PDF::loadview('publisher.publisher_pdf',['publisher'=>$publisher]);
         return $pdf->stream();
+    }
+
+    public function excel()
+    {
+        return Excel::download(new PenerbitExport, 'penerbit.xlsx');
     }
 
     /**

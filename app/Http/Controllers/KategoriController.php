@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use App\Exports\KategoriExport;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
 class KategoriController extends Controller
@@ -26,6 +28,10 @@ class KategoriController extends Controller
  
         $pdf = PDF::loadview('kategori.kategori_pdf',['kategori'=>$kategori]);
         return $pdf->stream();
+    }
+    public function excel()
+    {
+        return Excel::download(new KategoriExport, 'kategori.xlsx');
     }
 
 

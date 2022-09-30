@@ -23,8 +23,9 @@
 
     <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="{{ route('authors.create') }}" class="btn btn-primary btm-sm">Create</a>
-        <a href="{{ url('export') }}" target="_blank" class="btn btn-success btm-sm">Export PDF</a>
+        <a href="{{ route('authors.create') }}" class="btn btn-primary btm-sm">Create Buku</a>
+        <a href="{{ url('pdf') }}" target="_blank" class="btn btn-danger btm-sm">Export PDF</a>
+         <a href="{{ url('excel') }}" target="_blank" class="btn btn-success btm-sm">Export Excel</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -62,6 +63,6 @@
     </table>
     </div>
 </div>
-</div>
+
     {!! $author->links() !!}
 @endsection

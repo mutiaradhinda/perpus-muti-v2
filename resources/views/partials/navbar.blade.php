@@ -19,6 +19,9 @@
         <li class="nav-item">
           <a class="nav-link {{ $title ==='Categories' ? 'active':''}}" href="{{ url ('/categories') }}">Categories</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ $title ==='Data Buku' ? 'active':''}}" href="{{ url ('/buku') }}">Data Buku</a>
+        </li>
       </ul>
       <ul class="navbar-nav ms-auto">
         @auth

@@ -46,6 +46,12 @@ Route::get('/categories', function () {
     ]);
 });
 
+Route::get('/buku', function () {
+    return view('buku',[
+        "title" =>"Data Buku",
+    ]);
+});
+
 //login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -63,19 +69,23 @@ Route::get('/admin', [AdminController::class, 'index']);
 //post
 Route::resource('book', BookController::class);
 Route::get('/pdf', [BookController::class, 'pdf']);
-Route::get('/excel', [BookController::class, 'excel'])->name('book');    
+Route::get('/export data', [BookController::class, 'excel'])->name('book');
+
 
 //penulis
 Route::resource('authors', AuthorController::class );
 Route::get('/export', [AuthorController::class, 'pdf']);
+Route::get('/excel', [AuthorController::class, 'excel'])->name('author');
 
 //penerbit
 Route::resource('publishers', PublisherController::class );
 Route::get('/penerbit', [PublisherController::class, 'pdf']);
+Route::get('/publisher', [PublisherController::class, 'excel'])->name('publishers');
 
 //kategori
 Route::resource('kategori', KategoriController::class );
 Route::get('/data', [KategoriController::class, 'pdf']);
+Route::get('/data kategori', [KategoriController::class, 'excel'])->name('kategori');
 
 //peminjam
 Route::resource('peminjamen', PeminjamanController::class );

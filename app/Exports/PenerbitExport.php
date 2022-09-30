@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Book;
+use App\Models\Publisher;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -12,45 +12,41 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class BukuExport implements FromCollection, WithHeadings, ShouldAutoSize,  WithMapping, WithStyles
+class PenerbitExport implements FromCollection, WithHeadings, ShouldAutoSize,  WithMapping, WithStyles
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Book::all();
+        return Publisher::all();
     }
 
     public function map($user):array
     {
         return [
             $user->nama,
-            $user->tahun_terbit,
-            $user->author->nama,
-            $user->publisher->nama,
-            $user->kategori->kategori,
-            $user->sinopsis,
+            $user->alamat,
+            $user->telepon,
+            $user->email,
         ];
     }
 
     public function headings(): array
     {
        return [
-         'Judul Buku',
-         'Tahun Terbit',
-         'Penulis',
-         'Penerbit',
-         'Kategori',
-         'Sinopsis'
+       	 'Nama',
+       	 'Alamat',
+       	 'telepon',
+       	 'email',
        ];
     }
 
-    public function styles(Worksheet $sheet)    
-    {
-        return [
-           // Style the first row as bold text.
-           1    => ['font' => ['bold' => true]],
-        ];
-    }   
+	public function styles(Worksheet $sheet)	
+	{
+	    return [
+	       // Style the first row as bold text.
+	       1    => ['font' => ['bold' => true]],
+	    ];
+	}	
 }
