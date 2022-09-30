@@ -19,16 +19,16 @@ class BookController extends Controller
      */
     public function index()
     {
-        $buku = Book::with('author', 'publisher', 'kategori')->paginate(2);
+        $book = Book::with('author', 'publisher', 'kategori')->paginate(2);
 
-        return view('book.index', compact('buku'));
+        return view('book.index', compact('book'));
     }
-
+    
     public function pdf()
     {
-        $buku = Book::get();
+        $book = Book::get();
  
-        $pdf = PDF::loadview('book.buku_pdf',['buku'=>$buku]);
+        $pdf = PDF::loadview('book.buku_pdf',['book'=>$book]);
         return $pdf->stream();
     }
 

@@ -31,7 +31,7 @@
 		</thead>
         <tbody>
 			@php $i=1 @endphp
-			@foreach($buku as $value)
+			@foreach($book as $value)
 		<tr>
 			<td>{{ $i++ }}</td>
             <td>{{ $value->nama }}</td>

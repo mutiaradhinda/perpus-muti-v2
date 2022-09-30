@@ -16,10 +16,9 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $author = Author::latest()->paginate(5);
+        $author = Author::get();
 
-        return view('author.index',compact('author'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('author.index',compact('author'));
     }
 
      public function pdf()

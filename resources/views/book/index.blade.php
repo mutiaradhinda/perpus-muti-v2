@@ -41,7 +41,7 @@
             <th>Sampul</th>
             <th width="400px">Action</th>
         </tr>
-        @foreach ($buku as $value)
+        @foreach ($book as $value)
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $value->nama }}</td>
@@ -70,5 +70,5 @@
     </div>
 </div>
 </div>
-    {!! $buku->links() !!}
+    {!! $book->links() !!}
 @endsection

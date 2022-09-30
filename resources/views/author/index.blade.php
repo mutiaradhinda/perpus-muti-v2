@@ -40,7 +40,7 @@
         </tr>
         @foreach ($author as $key => $value)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $loop->iteration }}</td>
             <td>{{ $value->nama }}</td>
             <td>{{ $value->alamat }}</td>
             <td>{{ $value->telepon }}</td>

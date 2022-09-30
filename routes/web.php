@@ -25,6 +25,7 @@ use App\Http\Controllers\PenggunaController;
 Route::get('/', function () {
     return view('home',[
         "title" =>"Home",
+        "image" =>"laut bercerita.jpg", "filosofi teras.jpg",
     ]);
 });
 
