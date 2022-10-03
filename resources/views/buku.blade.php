@@ -2,38 +2,22 @@
 
 @section('container')
 
-<div class="card card-primary">
-    <div class="card-header">
-        <h5 class="card-title">Data Buku</h5>
+<div class="row">
+    <div class="col-md-24">
+        <div class="card-body">
+        <h5 class="card-header bg-danger">Data Buku</h5>
     </div>
-    <div class="row" style="margin-top: 1rem;">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                
-            </div>
-        </div>
- 
-        <div class="table-responsive">
-            <table class="table table-bordered text-center" id="id" width="100%" cellspacing="0">
-        <tr>
-            <th>No</th>
-            <th>Judul Buku</th>
-            <th>Tahun Terbit</th>
-            <th>Penulis</th>
-            <th>Penerbit</th>
-            <th>Kategori</th>
-            <th width="280px">Sinopsis</th>
-            <th>Sampul</th>
-            <th width="400px">Action</th>
-        </tr>
-            
-        
-    </table>
-    </div>
-
 </div>
+<div class="card-body ">
+  @foreach ($images as $image)
+    <img src="{{ $image }}" width=230 height=380 margin-left=20>
+    <div class="card-body">
+      <h5 class="card-title">Laut Bercerita</h5>
+      <a class="btn btn-primary" href="/">Detail Buku</a>
+    </div>
+    @endforeach
+  </div>    
 </div>
 
-  
-
+</div>
  @endsection

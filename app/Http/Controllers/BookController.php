@@ -22,6 +22,13 @@ class BookController extends Controller
         $book = Book::with('author', 'publisher', 'kategori')->paginate(2);
 
         return view('book.index', compact('book'));
+
+
+    }
+
+    public function jumlahdata()
+    {
+        $count = Book::where('status','=','1')->count();
     }
     
     public function pdf()
@@ -158,4 +165,28 @@ class BookController extends Controller
         return redirect()->route('book.index')
                         ->with('success','Post deleted successfully');
     }
+
+    public function singlePost($image)
+{
+   $book = Book::find($image); 
+   $images = $book->images()->get(); 
+
+   $bookObj = [
+      'id' => $book->id,  
+      'title' => $book->title, 
+      'body' => $book->body
+   ];
+
+   foreach ($images as $image) {
+      $arrImages[] = [
+         'id' => $image->id, 
+         'url' => $image->url,       
+      ];
+   }; 
+
+   $res = array_merge($bookObj, ['images' => $arrImages]);
+
+   return response()->json(['book' => $res]); 
+}
+
 }

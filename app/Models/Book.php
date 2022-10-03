@@ -29,4 +29,11 @@ class Book extends Model
         return $this->belongsTo(Publisher::class, 'id_penerbit', 'id');
     }
 
+    public function getJumlahBuku()
+    {
+        $query = Book::query();
+
+        return $query->count();
+    }
+
 }

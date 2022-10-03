@@ -47,11 +47,15 @@ Route::get('/categories', function () {
     ]);
 });
 
-Route::get('/buku', function () {
-    return view('buku',[
-        "title" =>"Data Buku",
-    ]);
-});
+// Route::get('/data buku', function () {
+//     return view('buku',[
+//         "title" =>"Data Buku",
+//         "image" =>"laut bercerita.jpg", "filosofi teras.jpg",
+//     ]);
+// });
+
+Route::get('/data buku', [BookController::class, 'singlePost']);
+
 
 //login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
