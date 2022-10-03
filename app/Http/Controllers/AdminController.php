@@ -1,7 +1,9 @@
 <?php
+use App\Models\Book;
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,8 +15,13 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $query =  Book::query();
+        $buku =  $query->count();
+
+        // dd($buku);
         return view('admin.admin', [
-            'title' => 'Dashboard'
+            'title' => 'Dashboard',
+            'buku' => $buku 
         ]);
     }
 

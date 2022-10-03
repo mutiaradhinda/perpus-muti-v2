@@ -78,16 +78,17 @@
                 
 
                 <p>Jumlah Buku</p>
+                
                 <p class="subtitle">
-                 @foreach ($book as $value)<a href="{{ route('book') }}" class="tag is-info is-light">{{ $value->getJumlahBuku() }}</a> 
-                  </p>
-                <h3>{{ $value->count() }}</h3>
-                @endforeach
+                 <a href="" class="tag is-info is-light"></a> 
+                </p>
+                <h3>{{ $buku }}</h3>
+               
               </div>
               <div class="icon">
                 <i class="fa-solid fa-books"></i>
               </div>
-              <a href="{{ count($book) }}" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
