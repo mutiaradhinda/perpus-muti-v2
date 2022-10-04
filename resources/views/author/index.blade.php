@@ -64,5 +64,5 @@
     </div>
 </div>
 </div>
-    {!! $author->links() !!}
+  
 @endsection

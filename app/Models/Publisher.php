@@ -26,9 +26,7 @@ class Publisher extends Model
 
         $query->where('id_penerbit', '=', $this->id);
 
-        return $query;
-
-
+        return $query->count();
     }
 
 }

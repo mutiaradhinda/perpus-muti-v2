@@ -46,7 +46,7 @@
             <td>{{ $value->alamat }}</td>
             <td>{{ $value->telepon }}</td>
             <td>{{ $value->email }}</td>
-            <td>{{ $value->getJumlahBuku }}</td>
+            <td>{{ $value->getJumlahBuku() }}</td>
             <td>
         <form action="{{ route('publishers.destroy',$value->id) }}" method="POST">
      
