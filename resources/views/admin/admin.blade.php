@@ -99,7 +99,7 @@
                 
 
                 <p>Jumlah Penulis</p>
-                <h3>2</h3>
+                <h3>{{ $penulis }}</h3>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -113,7 +113,7 @@
             <div class="small-box bg-warning">
               <div class="inner">
                 <p>Jumlah Penerbit</p>
-                <h3>44</h3>
+                <h3>{{ $penerbit }}</h3>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -127,7 +127,7 @@
             <div class="small-box bg-danger">
               <div class="inner">
                 <p>Jumlah Kategori</p>
-                <h3>65</h3>
+                <h3>{{ $kategori }}</h3>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>

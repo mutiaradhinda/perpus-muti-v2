@@ -1,9 +1,11 @@
 <?php
-use App\Models\Book;
 
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Author;
+use App\Models\Publisher;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -18,10 +20,22 @@ class AdminController extends Controller
         $query =  Book::query();
         $buku =  $query->count();
 
+        $query =  Author::query();
+        $penulis =  $query->count();
+
+        $query =  Publisher::query();
+        $penerbit =  $query->count();
+ 
+        $query =  Kategori::query();
+        $kategori =  $query->count();
+
         // dd($buku);
         return view('admin.admin', [
             'title' => 'Dashboard',
-            'buku' => $buku 
+            'buku' => $buku,
+            'penulis' => $penulis,
+            'penerbit' => $penerbit,
+            'kategori' => $kategori 
         ]);
     }
 

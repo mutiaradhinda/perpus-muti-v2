@@ -23,16 +23,16 @@
 
     <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="{{ route('authors.create') }}" class="btn btn-primary btm-sm">Create Buku</a>
-        <a href="{{ url('pdf') }}" target="_blank" class="btn btn-danger btm-sm">Export PDF</a>
-         <a href="{{ url('excel') }}" target="_blank" class="btn btn-success btm-sm">Export Excel</a>
+        <a href="{{ route('authors.create') }}" class="btn btn-primary btm-sm">Create</a>
+        <a href="{{ url('penerbit') }}" target="_blank" class="btn btn-danger btm-sm">Export PDF</a>
+         <a href="{{ url('author') }}" target="_blank" class="btn btn-success btm-sm">Export Excel</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered text-center" id="id" width="100%" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>Nama</th>
+            <th>Penerbit</th>
             <th>Alamat</th>
             <th>Telepon</th>
             <th>Email</th>
@@ -63,6 +63,6 @@
     </table>
     </div>
 </div>
-
+</div>
     {!! $author->links() !!}
 @endsection

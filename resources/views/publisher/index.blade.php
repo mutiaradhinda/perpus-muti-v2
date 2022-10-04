@@ -36,15 +36,17 @@
             <th>Alamat</th>
             <th>Telepon</th>
             <th>Email</th>
+            <th>Jumlah Buku</th>
             <th width="300px">Action</th>
         </tr>
         @foreach ($publisher as $key => $value)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $loop->iteration }}</td>
             <td>{{ $value->nama }}</td>
             <td>{{ $value->alamat }}</td>
             <td>{{ $value->telepon }}</td>
             <td>{{ $value->email }}</td>
+            <td>{{ $value->getJumlahBuku }}</td>
             <td>
         <form action="{{ route('publishers.destroy',$value->id) }}" method="POST">
      

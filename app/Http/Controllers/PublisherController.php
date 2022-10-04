@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Publisher;
+use\App\Models\Book;
 use Illuminate\Http\Request;
 use App\Exports\PenerbitExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -16,11 +17,17 @@ class PublisherController extends Controller
      */
     public function index()
     {
+        $query =  Book::query('id');
+        $buku =  $query->count();
+
         $publisher = Publisher::latest()->paginate(5);
 
-        return view('publisher.index',compact('publisher'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('publisher.index',compact('publisher'), [
+            'buku' => $buku,
+        ]);
+
     }
+
 
     public function pdf()
     {
@@ -63,13 +70,6 @@ class PublisherController extends Controller
 
          $input = $request->all();
   
-    //     if ($image = $request->file('image')) {
-    //         $destinationPath = 'image/';
-    //         $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-    //         $image->move($destinationPath, $profileImage);
-    //         $input['image'] = "$profileImage";
-    // }
-
         Publisher::create($input);
 
         return redirect()->route('publishers.index')
@@ -116,15 +116,6 @@ class PublisherController extends Controller
         ]);
 
          $input = $request->all();
-  
-        // if ($image = $request->file('image')) {
-        //     $destinationPath = 'image/';
-        //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-        //     $image->move($destinationPath, $profileImage);
-        //     $input['image'] = "$profileImage";
-        // }else{
-        //     unset($input['image']);
-        // }
 
         $publisher->update($input);
 
