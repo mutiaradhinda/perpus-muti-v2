@@ -4,7 +4,7 @@
 
 <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Data Penerbit</h2>
+        <h2 class="card-title">Data Buku</h2>
     </div>
 
     <div class="row" style="margin-top: 1rem;">
@@ -36,14 +36,14 @@
         <div style="overflow: auto">
             <table class="table table-bordered table-condensed">
                 <tr>
-                    <th>No</th>
-                    <th>Judul Buku</th>
-                    <th>Tahun Terbit</th>
-                    <th>Penulis</th>
-                    <th>Penerbit</th>
-                    <th>Kategori</th>
+                    <th style="text-align:center;">No</th>
+                    <th style="text-align:center">Judul Buku</th>
+                    <th style="text-align:center">Tahun Terbit</th>
+                    <th style="text-align:center;">Penulis</th>
+                    <th style="text-align:center;">Penerbit</th>
+                    <th style="text-align:center">Kategori</th>
                     <th width="200px" style="text-align: center;">Sinopsis</th>
-                    <th>Sampul</th>
+                    <th style="text-align:center">Sampul</th>
                     <th width="250px" style="text-align: center;">Action</th>
                 </tr>
                 @foreach ($book as $value)
@@ -68,7 +68,7 @@
             
                         <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
-            @endforeach
+                @endforeach
             </table>
         </div>
     </div>
