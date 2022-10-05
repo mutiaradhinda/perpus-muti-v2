@@ -36,6 +36,7 @@
             <th>Alamat</th>
             <th>Telepon</th>
             <th>Email</th>
+            <th>Jumlah Buku</th>
             <th width="300px">Action</th>
         </tr>
         @foreach ($author as $key => $value)
@@ -45,6 +46,7 @@
             <td>{{ $value->alamat }}</td>
             <td>{{ $value->telepon }}</td>
             <td>{{ $value->email }}</td>
+            <td>{{ $value->getJumlahBuku() }}</td>
             <td>
         <form action="{{ route('authors.destroy',$value->id) }}" method="POST">
      
@@ -64,5 +66,4 @@
     </div>
 </div>
 </div>
-    {!! $author->links() !!}
 @endsection

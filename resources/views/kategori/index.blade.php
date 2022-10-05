@@ -33,12 +33,14 @@
         <tr>
             <th width="10px">No</th>
             <th>Kategori</th>
+            <th>Jumlah Buku</th>
             <th width="300px">Action</th>
         </tr>
         @foreach ($kategori as $key => $value)
         <tr>
             <td>{{ ++$i }}</td>
             <td>{{ $value->kategori }}</td>
+            <td>{{ $value->getJumlahBuku() }}</td>
             <td>
         <form action="{{ route('kategori.destroy',$value->id) }}" method="POST">
      

@@ -1,14 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Publisher;
-use\App\Models\Book;
+use App\Models\Penerbit;
 use Illuminate\Http\Request;
 use App\Exports\PenerbitExport;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
-class PublisherController extends Controller
+class publisherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,29 +16,22 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        $query =  Book::query('id');
-        $buku =  $query->count();
+        $data = Penerbit::latest()->paginate(5);
 
-        $publisher = Publisher::latest()->paginate(5);
-
-        return view('publisher.index',compact('publisher'), [
-            'buku' => $buku,
-        ]);
-
+        return view('publisher.index',compact('data'));
     }
 
-
-    public function pdf()
+     public function pdf()
     {
-        $publisher = Publisher::get();
+        $data = Penerbit::get();
  
-        $pdf = PDF::loadview('publisher.publisher_pdf',['publisher'=>$publisher]);
+        $pdf = PDF::loadview('publisher.publisher_pdf',['publisher'=>$data]);
         return $pdf->stream();
     }
 
     public function excel()
     {
-        return Excel::download(new PenerbitExport, 'penerbit.xlsx');
+        return Excel::download(new PenerbitExport, 'penerbits.xlsx');
     }
 
     /**
@@ -69,8 +61,8 @@ class PublisherController extends Controller
         ]);
 
          $input = $request->all();
-  
-        Publisher::create($input);
+
+        Penerbit::create($input);
 
         return redirect()->route('publishers.index')
                         ->with('success','Created successfully!');
@@ -82,7 +74,7 @@ class PublisherController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Publisher $publisher)
+    public function show(Penerbit $publisher)
     {
         return view('publisher.show',compact('publisher'));
     }
@@ -93,7 +85,7 @@ class PublisherController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Publisher $publisher)
+    public function edit(Penerbit $publisher)
     {
         return view('publisher.edit',compact('publisher'));
     }
@@ -105,7 +97,7 @@ class PublisherController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Publisher $publisher)
+    public function update(Request $request, Penerbit $publisher)
     {
          $request->validate([
             'nama' => 'required|max:255',
@@ -116,7 +108,7 @@ class PublisherController extends Controller
         ]);
 
          $input = $request->all();
-
+  
         $publisher->update($input);
 
         return redirect()->route('publishers.index')
@@ -129,11 +121,11 @@ class PublisherController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Publisher $publisher)
+    public function destroy(Penerbit $publisher)
     {
         $publisher->delete();
 
         return redirect()->route('publishers.index')
-                        ->with('success','Deleted successfully');
+                        ->with('success','Post deleted successfully');
     }
 }

@@ -26,7 +26,7 @@ class Book extends Model
 
     public function publisher()
     {
-        return $this->belongsTo(Publisher::class, 'id_penerbit', 'id');
+        return $this->belongsTo(Penerbit::class, 'id_penerbit', 'id');
     }
 
     public function getJumlahBuku()

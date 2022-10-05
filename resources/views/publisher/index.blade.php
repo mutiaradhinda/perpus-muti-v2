@@ -1,70 +1,32 @@
-@extends('publisher.layout')
+<?php
 
-@section('content')
+namespace App\Models;
 
-<div class="card card-primary">
-    <div class="card-header">
-        <h2 class="card-title">Data Penerbit</h2>
-    </div>
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Book;
 
-    <div class="row" style="margin-top: 1rem;">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                
-            </div>
-        </div>
-    </div>
+class Publisher extends Model
+{
+    
+    protected $table = "publishers";
+    protected $primaryKey = "id";
+    protected $fillable = [
+        'nama', 'alamat', 'telepon', 'email'
+    ];
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
+     public function book()
+    {
+        return $this->hasMany('book::class');
+    }
 
-    <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <a href="{{ route('publishers.create') }}" class="btn btn-primary btm-sm">Create</a>
-        <a href="{{ url('penerbit') }}" target="_blank" class="btn btn-danger btm-sm">Export PDF</a>
-         <a href="{{ url('publisher') }}" target="_blank" class="btn btn-success btm-sm">Export Excel</a>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center" id="id" width="100%" cellspacing="0">
-        <tr>
-            <th>No</th>
-            <th>Penerbit</th>
-            <th>Alamat</th>
-            <th>Telepon</th>
-            <th>Email</th>
-            <th>Jumlah Buku</th>
-            <th width="300px">Action</th>
-        </tr>
-        @foreach ($publisher as $key => $value)
-        <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>{{ $value->nama }}</td>
-            <td>{{ $value->alamat }}</td>
-            <td>{{ $value->telepon }}</td>
-            <td>{{ $value->email }}</td>
-            <td>{{ $value->getJumlahBuku }}</td>
-            <td>
-        <form action="{{ route('publishers.destroy',$value->id) }}" method="POST">
-     
-            <a class="btn btn-info" href="{{ route('publishers.show',$value->id) }}">Show</a>
-      
-            <a class="btn btn-primary" href="{{ route('publishers.edit',$value->id) }}">Edit</a>
-     
-                    @csrf
-                    @method('DELETE')
-        
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>
-    </div>
-</div>
-</div>
-    {!! $publisher->links() !!}
-@endsection
+    public function getJumlahBuku()
+    {
+        $query = Book::query();
+
+        $query->where('id_penerbit', '=', $this->id);
+
+        return $query->count();
+    }
+
+}

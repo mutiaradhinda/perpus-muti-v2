@@ -62,11 +62,8 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="card">
         @yield('content')
-      </div>
     </div>
-  </div>
   </section>
           <!-- ./col -->
 

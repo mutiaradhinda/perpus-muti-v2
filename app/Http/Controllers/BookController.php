@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Kategori;
 use App\Models\Author;
-use App\Models\Publisher;
+use App\Models\Penerbit;
 use Illuminate\Http\Request;
 use App\Exports\BukuExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -19,7 +19,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $book = Book::with('author', 'publisher', 'kategori')->paginate(2);
+        $book = Book::with('author', 'publisher', 'kategori')->paginate(5);
 
         return view('book.index', compact('book'));
 
@@ -54,7 +54,7 @@ class BookController extends Controller
     {
         $k = Kategori::all();
         $a = Author::all();
-        $p = Publisher::all();
+        $p = Penerbit::all();
         return view('book.create',compact('k', 'a', 'p'));
     }
 
@@ -113,7 +113,7 @@ class BookController extends Controller
     {
         $k = Kategori::all();
         $a = Author::all();
-        $p = Publisher::all();
+        $p = Penerbit::all();
         return view('book.edit',compact('k', 'a', 'p'));
     }
 

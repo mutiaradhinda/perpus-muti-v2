@@ -19,7 +19,6 @@ class CreatePublishersTable extends Migration
             $table->string('alamat');
             $table->string('telepon');
             $table->string('email');
-            $table->string('jumlah_data');
             $table->timestamps();
         });
     }

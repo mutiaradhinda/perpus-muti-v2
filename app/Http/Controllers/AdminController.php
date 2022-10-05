@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Author;
-use App\Models\Publisher;
+use App\Models\Penerbit;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 
@@ -23,7 +23,7 @@ class AdminController extends Controller
         $query =  Author::query();
         $penulis =  $query->count();
 
-        $query =  Publisher::query();
+        $query =  Penerbit::query();
         $penerbit =  $query->count();
  
         $query =  Kategori::query();

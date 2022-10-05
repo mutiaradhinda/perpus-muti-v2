@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Book;
 
-class Publisher extends Model
+class Penerbit extends Model
 {
-    
+   
     protected $table = "publishers";
     protected $primaryKey = "id";
     protected $fillable = [
@@ -26,9 +26,7 @@ class Publisher extends Model
 
         $query->where('id_penerbit', '=', $this->id);
 
-        return $query;
-
-
+        return $query->count();
     }
 
 }
