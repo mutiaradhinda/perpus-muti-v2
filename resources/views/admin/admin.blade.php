@@ -141,6 +141,37 @@
   </div>
   </section>
           <!-- ./col -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h2 class="card-title">Grafik Buku Berdasarkan Penulis</h2>
+               </div>
+          <div class="panel">
+            <div id="charts">
+            </div>
+          </div>
+        </div>
+
+          <br>
+          <div class="card card-primary">
+            <div class="card-header">
+              <h2 class="card-title">Grafik Buku Berdasarkan Penerbit</h2>
+               </div>
+          <div class="panel">
+            <div id="chartPenerbit">
+            </div>
+          </div>
+        </div>
+
+          <br>
+          <div class="card card-primary">
+            <div class="card-header">
+              <h2 class="card-title">Grafik Buku Berdasarkan Kategori</h2>
+               </div>
+          <div class="panel">
+            <div id="chartKategori">
+            </div>
+          </div>
+        </div>
 
         </div>
         <!-- /.row -->
@@ -200,5 +231,389 @@
 <script src="{{asset('lte/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
+<!!-- Grafik -->
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<script>
+  Highcharts.chart('charts', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Penulis Buku'
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis: {
+        categories: [
+            'Henry Manampiring',
+            'Leila Salikha Chudori',
+            'Sir Arthur Conan Doyle',
+            'James Clear',
+            'Ardhi Mohamad',
+            'Alvi Syahrin'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        title: {
+            useHTML: true,
+            text: 'Jumlah Buku'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Buku',
+        data: [15.93, 13.63, 18.73, 16.67, 14.37, 16.67]
+
+    }]
+});
+</script>
+
+<script>
+  Highcharts.chart('chartPenerbit', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Grafik Data Buku'
+    },
+    subtitle: {
+        text: 'Berdasarkan: <a ' +
+            'href="https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population"' +
+            'target="_blank">Penerbit</a>'
+    },
+    xAxis: {
+        categories: ['Bhumi Anoma', 'Kompas', 'Gramedia', 'Baca'],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Jumlah Buku',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' books'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'Buku',
+        data: [300, 700, 1000, 550]
+    }]
+});
+</script>
+
+<script>
+  // Create the chart
+Highcharts.chart('chartKategori', {
+    chart: {
+        type: 'pie'
+    },
+    title: {
+        text: 'Grafik Data Buku'
+    },
+    subtitle: {
+        text: 'Berdasarkan: <a href="http://statcounter.com" target="_blank">Kategori</a>'
+    },
+
+    accessibility: {
+        announceNewData: {
+            enabled: true
+        },
+        point: {
+            valueSuffix: '%'
+        }
+    },
+
+    plotOptions: {
+        series: {
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}: {point.y:.1f}%'
+            }
+        }
+    },
+
+    tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+    },
+
+    series: [
+        {
+            name: "book",
+            colorByPoint: true,
+            data: [
+                {
+                    name: "Fiksi",
+                    y: 54.04,
+                    drilldown: "Chrome"
+                },
+                {
+                    name: "Sejarah",
+                    y: 9.47,
+                    drilldown: "Safari"
+                },
+                {
+                    name: "Komik",
+                    y: 9.32,
+                    drilldown: "Edge"
+                },
+                {
+                    name: "Self Improvement",
+                    y: 17.02,
+                    drilldown: null
+                }
+            ]
+        }
+    ],
+    drilldown: {
+        series: [
+            {
+                name: "Chrome",
+                id: "Chrome",
+                data: [
+                    [
+                        "v97.0",
+                        36.89
+                    ],
+                    [
+                        "v96.0",
+                        18.16
+                    ],
+                    [
+                        "v95.0",
+                        0.54
+                    ],
+                    [
+                        "v94.0",
+                        0.7
+                    ],
+                    [
+                        "v93.0",
+                        0.8
+                    ],
+                    [
+                        "v92.0",
+                        0.41
+                    ],
+                    [
+                        "v91.0",
+                        0.31
+                    ],
+                    [
+                        "v90.0",
+                        0.13
+                    ],
+                    [
+                        "v89.0",
+                        0.14
+                    ],
+                    [
+                        "v88.0",
+                        0.1
+                    ],
+                    [
+                        "v87.0",
+                        0.35
+                    ],
+                    [
+                        "v86.0",
+                        0.17
+                    ],
+                    [
+                        "v85.0",
+                        0.18
+                    ],
+                    [
+                        "v84.0",
+                        0.17
+                    ],
+                    [
+                        "v83.0",
+                        0.21
+                    ],
+                    [
+                        "v81.0",
+                        0.1
+                    ],
+                    [
+                        "v80.0",
+                        0.16
+                    ],
+                    [
+                        "v79.0",
+                        0.43
+                    ],
+                    [
+                        "v78.0",
+                        0.11
+                    ],
+                    [
+                        "v76.0",
+                        0.16
+                    ],
+                    [
+                        "v75.0",
+                        0.15
+                    ],
+                    [
+                        "v72.0",
+                        0.14
+                    ],
+                    [
+                        "v70.0",
+                        0.11
+                    ],
+                    [
+                        "v69.0",
+                        0.13
+                    ],
+                    [
+                        "v56.0",
+                        0.12
+                    ],
+                    [
+                        "v49.0",
+                        0.17
+                    ]
+                ]
+            },
+            {
+                name: "Safari",
+                id: "Safari",
+                data: [
+                    [
+                        "v15.3",
+                        0.1
+                    ],
+                    [
+                        "v15.2",
+                        2.01
+                    ],
+                    [
+                        "v15.1",
+                        2.29
+                    ],
+                    [
+                        "v15.0",
+                        0.49
+                    ],
+                    [
+                        "v14.1",
+                        2.48
+                    ],
+                    [
+                        "v14.0",
+                        0.64
+                    ],
+                    [
+                        "v13.1",
+                        1.17
+                    ],
+                    [
+                        "v13.0",
+                        0.13
+                    ],
+                    [
+                        "v12.1",
+                        0.16
+                    ]
+                ]
+            },
+            {
+                name: "Edge",
+                id: "Edge",
+                data: [
+                    [
+                        "v97",
+                        6.62
+                    ],
+                    [
+                        "v96",
+                        2.55
+                    ],
+                    [
+                        "v95",
+                        0.15
+                    ]
+                ]
+            },
+            {
+                name: "Firefox",
+                id: "Firefox",
+                data: [
+                    [
+                        "v96.0",
+                        4.17
+                    ],
+                    [
+                        "v95.0",
+                        3.33
+                    ],
+                    [
+                        "v94.0",
+                        0.11
+                    ],
+                    [
+                        "v91.0",
+                        0.23
+                    ],
+                    [
+                        "v78.0",
+                        0.16
+                    ],
+                    [
+                        "v52.0",
+                        0.15
+                    ]
+                ]
+            }
+        ]
+    }
+});
+</script>
 </body>
 </html>

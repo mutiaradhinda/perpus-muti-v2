@@ -29,4 +29,14 @@ class Author extends Model
         return $query->count();
     }
 
+    public static function getGrafikList()
+    {
+        $data = [];
+
+        foreach (static::find()->all() as $author){
+            $data[] = [($author->nama), (int) $author->getAuthorCount()];
+        }
+        return $data;
+    }
+
 }

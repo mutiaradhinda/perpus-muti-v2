@@ -19,6 +19,7 @@ class AuthorController extends Controller
         $author = Author::latest()->paginate(5);
 
         return view('author.index',compact('author'));
+
     }
 
      public function pdf()

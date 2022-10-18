@@ -29,14 +29,21 @@ class AdminController extends Controller
         $query =  Kategori::query();
         $kategori =  $query->count();
 
+        $penulisChart = new PenulisChart();
+        $penulisChart->labels($penulisLabels);
+        $penulisChart->dataset('Jumlah buku', 'bar',$penulisData);
+
+
         // dd($buku);
         return view('admin.admin', [
             'title' => 'Dashboard',
             'buku' => $buku,
             'penulis' => $penulis,
             'penerbit' => $penerbit,
-            'kategori' => $kategori 
+            'kategori' => $kategori,
+            'penulisChart' => $penulisChart  
         ]);
+
     }
 
     /**

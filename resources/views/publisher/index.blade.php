@@ -1,32 +1,74 @@
-<?php
+@extends('publisher.layout')
 
-namespace App\Models;
+@section('content')
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Book;
+<div class="card card-primary">
+    <div class="card-header">
+        <h2 class="card-title">Data Penerbit</h2>
+    </div>
 
-class Publisher extends Model
-{
-    
-    protected $table = "publishers";
-    protected $primaryKey = "id";
-    protected $fillable = [
-        'nama', 'alamat', 'telepon', 'email'
-    ];
+    <div class="row" style="margin-top: 1rem;">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                
+            </div>
+        </div>
+    </div>
 
-     public function book()
-    {
-        return $this->hasMany('book::class');
-    }
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
 
-    public function getJumlahBuku()
-    {
-        $query = Book::query();
-
-        $query->where('id_penerbit', '=', $this->id);
-
-        return $query->count();
-    }
-
-}
+    <div class="card-body">
+        <div style="margin-bottom: 20px">
+            <a href="{{ route('publishers.create') }}" class="btn btn-primary btn-flat">
+                <i class="fa fa-plus-circle"></i> Tambah Data
+            </a>
+            <a href="{{ url('penerbit') }}" class="btn btn-danger btn-flat">
+                <i class="fa fa-file-pdf"></i> Export PDF
+            </a>
+            <a href="{{ url('publisher') }}" class="btn btn-success btn-flat">
+                <i class="fa fa-file-excel"></i> Export Excel
+            </a>
+        </div>
+        <div style="overflow: auto">
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th style="text-align:center;">No</th>
+                    <th style="text-align:center">Nama Penerbit</th>
+                    <th style="text-align:center">Alamat</th>
+                    <th style="text-align:center;">Telepon</th>
+                    <th style="text-align:center;">Email</th>
+                    <th style="text-align:center;">Jumlah Buku</th>
+                    <th width="250px" style="text-align: center;">Action</th>
+                </tr>
+                @foreach ($data as $value)
+                <tr>
+                   <td>{{ $loop->iteration }}</td>
+                    <td>{{ $value->nama }}</td>
+                    <td>{{ $value->alamat }}</td>
+                    <td>{{ $value->telepon }}</td>
+                    <td>{{ $value->email }}</td>
+                    <td>{{ $value->getJumlahBuku() }}</td>
+                <td>
+                <form action="{{ route('publishers.destroy',$value->id) }}" method="POST">
+         
+                    <a class="btn btn-info" href="{{ route('publishers.show',$value->id) }}">Show</a>
+          
+                    <a class="btn btn-primary" href="{{ route('publishers.edit',$value->id) }}">Edit</a>
+         
+                        @csrf
+                        @method('DELETE')
+            
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                </td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
+    </div>
+</div>
+@endsection

@@ -4,7 +4,7 @@
 
 <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Data Kategori</h2>
+        <h2 class="card-title">Data Penerbit</h2>
     </div>
 
     <div class="row" style="margin-top: 1rem;">
@@ -21,44 +21,48 @@
         </div>
     @endif
 
-    <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <a href="{{ route('kategori.create') }}" class="btn btn-primary btm-sm">Create</a>
-        <a href="{{ url('data') }}" target="_blank" class="btn btn-danger btm-sm">Export PDF</a>
-        <a href="{{ url('data kategori') }}" target="_blank" class="btn btn-success btm-sm">Export Excel</a>
-    </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center" id="id" width="100%" cellspacing="0">
-        <tr>
-            <th width="10px">No</th>
-            <th>Kategori</th>
-            <th>Jumlah Buku</th>
-            <th width="300px">Action</th>
-        </tr>
-        @foreach ($kategori as $key => $value)
-        <tr>
-            <td>{{ ++$i }}</td>
-            <td>{{ $value->kategori }}</td>
-            <td>{{ $value->getJumlahBuku() }}</td>
-            <td>
-        <form action="{{ route('kategori.destroy',$value->id) }}" method="POST">
-     
-            <a class="btn btn-info" href="{{ route('kategori.show',$value->id) }}">Show</a>
-      
-            <a class="btn btn-primary" href="{{ route('kategori.edit',$value->id) }}">Edit</a>
-     
-                    @csrf
-                    @method('DELETE')
-        
-                    <button type="submit" class="btn btn-danger">Delete</button>
+        <div style="margin-bottom: 20px">
+            <a href="{{ route('kategori.create') }}" class="btn btn-primary btn-flat">
+                <i class="fa fa-plus-circle"></i> Tambah Data
+            </a>
+            <a href="{{ url('data') }}" class="btn btn-danger btn-flat">
+                <i class="fa fa-file-pdf"></i> Export PDF
+            </a>
+            <a href="{{ url('data kategori') }}" class="btn btn-success btn-flat">
+                <i class="fa fa-file-excel"></i> Export Excel
+            </a>
+        </div>
+        <div style="overflow: auto">
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th width="50px"style="text-align:center;">No</th>
+                    <th style="text-align:center">Kategori</th>
+                    <th width="100px" style="text-align:center;">Jumlah Buku</th>
+                    <th width="250px" style="text-align: center;">Action</th>
+                </tr>
+                @foreach ($kategori as $value)
+                <tr>
+                   <td>{{ $loop->iteration }}</td>
+                    <td>{{ $value->kategori }}</td>
+                    <td>{{ $value->getJumlahBuku() }}</td>
+                <td>
+                <form action="{{ route('kategori.destroy',$value->id) }}" method="POST">
+         
+                    <a class="btn btn-info" href="{{ route('kategori.show',$value->id) }}">Show</a>
+          
+                    <a class="btn btn-primary" href="{{ route('kategori.edit',$value->id) }}">Edit</a>
+         
+                        @csrf
+                        @method('DELETE')
+            
+                        <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>
+                </td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
     </div>
 </div>
-</div>
-    {!! $kategori->links() !!}
 @endsection
