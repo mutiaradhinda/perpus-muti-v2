@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+
 <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -45,7 +48,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('book.index') }}" class="nav-link">
+            <a href="/book" class="nav-link">
               <i class="fa-solid fa-book"></i>
               <p>
                 Data Buku
@@ -124,7 +127,7 @@
 
           <li class="nav-header">SISTEM</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="{{ route('penggunas.index') }}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 User

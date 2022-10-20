@@ -10,9 +10,9 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <form action="/logout" method="post">
-                @csrf
-                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-in-right"></i>Logout</button>
-              </form>
+        @csrf
+        <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-in-right"></i>Logout</button>
+      </form>
       </li>
     </ul>
   </nav>
