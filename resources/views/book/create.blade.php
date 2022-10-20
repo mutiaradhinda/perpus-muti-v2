@@ -79,22 +79,24 @@
         </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Sinopsis:</strong>
-                <textarea class="form-control" style="height:150px" name="sinopsis" placeholder=""></textarea>
+        <div class="form-group">
+            <strong>Sinopsis:</strong>
+            <textarea class="form-control" style="height:150px" name="sinopsis" placeholder=""></textarea>
         </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Image:</strong>
-                <input type="file" name="image" class="form-control" placeholder="image">
-            </div>
+        <div class="form-group">
+            <strong>Image:</strong>
+            <input type="file" name="image" class="form-control" placeholder="image">
+        </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-                <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
     </div>
 
 </form>
+</div>
+</div>
 </div>
 @endsection

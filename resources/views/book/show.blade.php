@@ -9,7 +9,7 @@
     <div class="card shadow mb-4">
 <div class="card-header py-3">
     <a href="{{ route('book.index') }}" class="btn btn-primary btn-sm">Kembali</a>
-</div>
+
     </div>
     <div class="card-body">
         <table class="table table-bordered">
@@ -43,10 +43,11 @@
             </tr>
             <tr>
                 <th style="width: 180px">Sampul</th>
-                <td><img src="/image/{{ $book->image }}" width="300px"></td>
+                <td><img src="/image/{{ $book->image }}" width="100px"></td>
             </tr>
         </table>
     </div>
+</div>
 </div>
 @endsection
 
