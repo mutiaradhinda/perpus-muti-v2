@@ -62,14 +62,8 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-<<<<<<< HEAD
-        
-      
         @yield('content')
-      
-=======
-        @yield('content')
->>>>>>> 2b9c94035f227cadef9ba32ea8860fbbb714554d
+
     </div>
   </div>
   </section>

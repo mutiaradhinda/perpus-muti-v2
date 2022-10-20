@@ -81,7 +81,7 @@
                                     <div class="icon">
                                         <i class="fa fa-book"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                    <a href="{{route('book.index')}}" target="blank" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
 
@@ -96,7 +96,7 @@
                                     <div class="icon">
                                         <i class="fa fa-pencil-alt"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                    <a href="{{ route('authors.index') }}" target="blank" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
 
@@ -111,7 +111,7 @@
                                   <div class="icon">
                                     <i class="fa fa-building"></i>
                                   </div>
-                                  <a href="#" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
+                                  <a href="{{ route('publishers.index') }}" target="blank" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
 
@@ -126,7 +126,7 @@
                                   <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
                                   </div>
-                                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                  <a href="{{ route('kategori.index') }}" target="blank" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -135,6 +135,9 @@
             </div>
         </div>
 
+ @section('content')
+ <div class="row">
+    <div class="col-sm-6">
         <div class="card">
             <div class="card-header bg-primary">
                 Grafik Buku Berdasarkan Penulis
@@ -150,8 +153,8 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="row">
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header bg-primary">
@@ -169,6 +172,7 @@
                     </div>
                 </div>
             </div>
+        </div>
 
             <div class="col-sm-6">
                 <div class="card">
@@ -186,26 +190,19 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-
-
-                                  
-                               
-             
+            </div>         
     
         <!-- /.row -->
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-          </section>
+          
           <!-- right col -->
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
-    </section>
+    
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -311,330 +308,103 @@
         type: 'bar'
     },
     title: {
-        text: 'Grafik Data Buku'
+        text: 'Penerbit Buku'
     },
     subtitle: {
-        text: 'Berdasarkan: <a ' +
-            'href="https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population"' +
-            'target="_blank">Penerbit</a>'
+        text: ''
     },
     xAxis: {
-        categories: ['Bhumi Anoma', 'Kompas', 'Gramedia', 'Baca'],
-        title: {
-            text: null
-        }
+        categories: [
+            'Gramedia',
+            'Kompas',
+            'Bhumi Anoma',
+            'Baca',
+            'Alvi Ardhi Publishing'
+        ],
+        crosshair: true
     },
     yAxis: {
-        min: 0,
         title: {
-            text: 'Jumlah Buku',
-            align: 'high'
-        },
-        labels: {
-            overflow: 'justify'
+            useHTML: true,
+            text: 'Jumlah Buku'
         }
     },
     tooltip: {
-        valueSuffix: ' books'
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
     },
     plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: true
-            }
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
         }
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'top',
-        x: -40,
-        y: 80,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-        shadow: true
-    },
-    credits: {
-        enabled: false
     },
     series: [{
         name: 'Buku',
-        data: [300, 700, 1000, 550]
+        data: [15.93, 13.63, 18.73, 16.67, 14.37]
+
     }]
 });
 </script>
 
 <script>
-  // Create the chart
+// Data retrieved from https://netmarketshare.com
 Highcharts.chart('chartKategori', {
     chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
         type: 'pie'
     },
     title: {
-        text: 'Grafik Data Buku'
+        text: 'Kategori Buku'
     },
-    subtitle: {
-        text: 'Berdasarkan: <a href="http://statcounter.com" target="_blank">Kategori</a>'
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
     },
-
     accessibility: {
-        announceNewData: {
-            enabled: true
-        },
         point: {
             valueSuffix: '%'
         }
     },
-
     plotOptions: {
-        series: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
             dataLabels: {
                 enabled: true,
-                format: '{point.name}: {point.y:.1f}%'
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
             }
         }
     },
-
-    tooltip: {
-        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-    },
-
-    series: [
-        {
-            name: "book",
-            colorByPoint: true,
-            data: [
-                {
-                    name: "Fiksi",
-                    y: 54.04,
-                    drilldown: "Chrome"
-                },
-                {
-                    name: "Sejarah",
-                    y: 9.47,
-                    drilldown: "Safari"
-                },
-                {
-                    name: "Komik",
-                    y: 9.32,
-                    drilldown: "Edge"
-                },
-                {
-                    name: "Self Improvement",
-                    y: 17.02,
-                    drilldown: null
-                }
-            ]
-        }
-    ],
-    drilldown: {
-        series: [
-            {
-                name: "Chrome",
-                id: "Chrome",
-                data: [
-                    [
-                        "v97.0",
-                        36.89
-                    ],
-                    [
-                        "v96.0",
-                        18.16
-                    ],
-                    [
-                        "v95.0",
-                        0.54
-                    ],
-                    [
-                        "v94.0",
-                        0.7
-                    ],
-                    [
-                        "v93.0",
-                        0.8
-                    ],
-                    [
-                        "v92.0",
-                        0.41
-                    ],
-                    [
-                        "v91.0",
-                        0.31
-                    ],
-                    [
-                        "v90.0",
-                        0.13
-                    ],
-                    [
-                        "v89.0",
-                        0.14
-                    ],
-                    [
-                        "v88.0",
-                        0.1
-                    ],
-                    [
-                        "v87.0",
-                        0.35
-                    ],
-                    [
-                        "v86.0",
-                        0.17
-                    ],
-                    [
-                        "v85.0",
-                        0.18
-                    ],
-                    [
-                        "v84.0",
-                        0.17
-                    ],
-                    [
-                        "v83.0",
-                        0.21
-                    ],
-                    [
-                        "v81.0",
-                        0.1
-                    ],
-                    [
-                        "v80.0",
-                        0.16
-                    ],
-                    [
-                        "v79.0",
-                        0.43
-                    ],
-                    [
-                        "v78.0",
-                        0.11
-                    ],
-                    [
-                        "v76.0",
-                        0.16
-                    ],
-                    [
-                        "v75.0",
-                        0.15
-                    ],
-                    [
-                        "v72.0",
-                        0.14
-                    ],
-                    [
-                        "v70.0",
-                        0.11
-                    ],
-                    [
-                        "v69.0",
-                        0.13
-                    ],
-                    [
-                        "v56.0",
-                        0.12
-                    ],
-                    [
-                        "v49.0",
-                        0.17
-                    ]
-                ]
-            },
-            {
-                name: "Safari",
-                id: "Safari",
-                data: [
-                    [
-                        "v15.3",
-                        0.1
-                    ],
-                    [
-                        "v15.2",
-                        2.01
-                    ],
-                    [
-                        "v15.1",
-                        2.29
-                    ],
-                    [
-                        "v15.0",
-                        0.49
-                    ],
-                    [
-                        "v14.1",
-                        2.48
-                    ],
-                    [
-                        "v14.0",
-                        0.64
-                    ],
-                    [
-                        "v13.1",
-                        1.17
-                    ],
-                    [
-                        "v13.0",
-                        0.13
-                    ],
-                    [
-                        "v12.1",
-                        0.16
-                    ]
-                ]
-            },
-            {
-                name: "Edge",
-                id: "Edge",
-                data: [
-                    [
-                        "v97",
-                        6.62
-                    ],
-                    [
-                        "v96",
-                        2.55
-                    ],
-                    [
-                        "v95",
-                        0.15
-                    ]
-                ]
-            },
-            {
-                name: "Firefox",
-                id: "Firefox",
-                data: [
-                    [
-                        "v96.0",
-                        4.17
-                    ],
-                    [
-                        "v95.0",
-                        3.33
-                    ],
-                    [
-                        "v94.0",
-                        0.11
-                    ],
-                    [
-                        "v91.0",
-                        0.23
-                    ],
-                    [
-                        "v78.0",
-                        0.16
-                    ],
-                    [
-                        "v52.0",
-                        0.15
-                    ]
-                ]
-            }
-        ]
-    }
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Fiksi',
+            y: 70.67,
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Self-Improvement',
+            y: 33.77
+        },  {
+            name: 'Sastra Klasik',
+            y: 10.86
+        }, {
+            name: 'Sejarah',
+            y: 2.63
+        }, {
+            name: 'Komik',
+            y: 1.53
+        }]
+    }]
 });
 </script>
+
 </body>
 </html>

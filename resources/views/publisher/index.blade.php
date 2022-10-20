@@ -22,7 +22,7 @@
     @endif
 
     <div class="card-body">
-<<<<<<< HEAD
+
         <div style="margin-bottom: 20px">
             <a href="{{ route('publishers.create') }}" class="btn btn-primary btn-flat">
                 <i class="fa fa-plus-circle"></i> Tambah Data
@@ -56,46 +56,14 @@
                 <td>
                 <form action="{{ route('publishers.destroy',$value->id) }}" method="POST">
          
-                    <a class="btn btn-info" href="{{ route('publishers.show',$value->id) }}">Show</a>
+                <a class="btn btn-info" href="{{ route('publishers.show',$value->id) }}">Show</a>
           
-                    <a class="btn btn-primary" href="{{ route('publishers.edit',$value->id) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('publishers.edit',$value->id) }}">Edit</a>
          
                         @csrf
                         @method('DELETE')
             
                         <button type="submit" class="btn btn-danger">Delete</button>
-=======
-        <div class="table-responsive">
-            <table class="table table-bordered text-center" id="id" width="100%" cellspacing="0">
-        <tr>
-            <th>No</th>
-            <th>Penerbit</th>
-            <th>Alamat</th>
-            <th>Telepon</th>
-            <th>Email</th>
-            <th>Jumlah Buku</th>
-            <th width="300px">Action</th>
-        </tr>
-        @foreach ($publisher as $key => $value)
-        <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>{{ $value->nama }}</td>
-            <td>{{ $value->alamat }}</td>
-            <td>{{ $value->telepon }}</td>
-            <td>{{ $value->email }}</td>
-            <td>{{ $value->getJumlahBuku() }}</td>
-            <td>
-        <form action="{{ route('publishers.destroy',$value->id) }}" method="POST">
-     
-            <a class="btn btn-info" href="{{ route('publishers.show',$value->id) }}">Show</a>
-      
-            <a class="btn btn-primary" href="{{ route('publishers.edit',$value->id) }}">Edit</a>
-     
-                    @csrf
-                    @method('DELETE')
-        
-                    <button type="submit" class="btn btn-danger">Delete</button>
->>>>>>> 2b9c94035f227cadef9ba32ea8860fbbb714554d
                 </form>
                 </td>
                 </tr>
