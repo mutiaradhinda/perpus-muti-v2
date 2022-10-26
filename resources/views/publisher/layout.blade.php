@@ -1,18 +1,13 @@
-@extends('publisher.admin.admin')
+@extends('layouts.main')
 
 @section('content')
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Data Buku Perpustakaan</title>
+    <title>Data Penerbit Buku</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-
-
-@include('publisher/admin/header')
-@include('publisher/admin/sidebar')
-@include('publisher/admin/footer')
 
 <div class="container">
     @yield('content')

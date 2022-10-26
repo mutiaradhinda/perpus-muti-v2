@@ -1,10 +1,15 @@
-@extends('author.layout')
+@extends('user.layout')
 
 @section('content')
 
 <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Create Data Penulis</h2>
+        <h2 class="card-title">Tambah User</h2>
+    </div>
+
+ <div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <a href="{{ route('user.index') }}" class="btn btn-primary btn-sm">Kembali</a>
     </div>
 
 @if ($errors->any())
@@ -19,41 +24,37 @@
 @endif
     
     <div class="card-body">
-    <form action="{{ route('authors.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
         @csrf
 
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nama Penulis:</strong>
+                <strong>Nama:</strong>
                 <input type="text" name="nama" class="form-control" placeholder="" autofocus>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Alamat:</strong>
-                <input type="text" name="alamat" class="form-control" placeholder="">
+                <strong>Username:</strong>
+                <input type="text" name="username" class="form-control" placeholder="" autofocus>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Telepon:</strong>
-                <input type="text" name="telepon" class="form-control" placeholder="">
+                <strong>User Role:</strong>
+            <select class="form-control select2" style="width: 100%;" name="user_role">
+              <option disabled value>User Role</option>
+              <option>Admin</option>
+            </select>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Email:</strong>
-                <input type="text" name="email" class="form-control" placeholder="">
-            </div>
-        </div>
-
         </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-              <button type="submit" class="btn btn-primary">Simpan</button>
-              <a href="{{ route('author.index') }}" class="btn btn-warning">Kembali</a>
-          </div>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+    </div>
 
 </form>
 </div>

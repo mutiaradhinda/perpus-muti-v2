@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Exports\BukuExport;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
+use Alert;
 
 class BookController extends Controller
 {
@@ -19,7 +20,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $book = Book::with('author', 'publisher', 'kategori')->paginate(5);
+        $book = Book::with('author', 'publisher', 'kategori')->paginate(10);
 
         return view('book.index', compact('book'));
 
@@ -88,8 +89,9 @@ class BookController extends Controller
 
         Book::create($input);
 
-        return redirect()->route('book.index')
-                        ->with('success','Post created successfully.');
+        toast('Data Berhasil Ditambahkan!', 'success');
+
+        return redirect()->route('book.index');
     }
 
     /**
@@ -147,9 +149,8 @@ class BookController extends Controller
         }
 
         $book->update($input);
-
-        return redirect()->route('book.index')
-                        ->with('success','Post updated successfully');
+        toast('Data Berhasi Diubah!', 'success');
+        return redirect()->route('book.index');
     }
 
     /**
@@ -161,9 +162,8 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-
-        return redirect()->route('book.index')
-                        ->with('success','Post deleted successfully');
+        toast('Data Berhasil Dihapus!', 'success');
+        return redirect()->route('book.index');
     }
 
     public function singlePost($image)

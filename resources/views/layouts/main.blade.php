@@ -29,7 +29,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-
+@include('sweetalert::alert')
 <!-- Navbar -->
   @include('layouts/header')
 <!-- /.navbar -->

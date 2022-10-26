@@ -76,7 +76,7 @@
                                 <div class="small-box bg-primary">
                                     <div class="inner">
                                         <p>Jumlah Buku</p>
-                                        <h3>{{ $buku }}</h3>
+                                        <h3>{{ @$buku }}</h3>
                                     </div>
                                     <div class="icon">
                                         <i class="fa fa-book"></i>
@@ -91,7 +91,7 @@
                                 <div class="small-box bg-success">
                                     <div class="inner">
                                         <p>Jumlah Penulis</p>
-                                        <h3>{{ $penulis }}</h3>
+                                        <h3>{{ @$penulis }}</h3>
                                     </div>
                                     <div class="icon">
                                         <i class="fa fa-pencil-alt"></i>
@@ -106,7 +106,7 @@
                                 <div class="small-box bg-warning">
                                     <div class="inner">
                                         <p>Jumlah Penerbit</p>
-                                        <h3>{{ $penerbit }}</h3>
+                                        <h3>{{ @$penerbit }}</h3>
                                   </div> 
                                   <div class="icon">
                                     <i class="fa fa-building"></i>
@@ -121,7 +121,7 @@
                                  <div class="small-box bg-danger">
                                     <div class="inner">
                                         <p>Jumlah Kategori</p>
-                                        <h3>{{ $kategori }}</h3>
+                                        <h3>{{ @$kategori }}</h3>
                                     </div>
                                   <div class="icon">
                                     <i class="ion ion-pie-graph"></i>

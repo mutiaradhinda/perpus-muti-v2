@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('book.layout')
 
 @section('content')
 
@@ -66,7 +66,7 @@
                         @csrf
                         @method('DELETE')
             
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger">Delete</button>
                 </form>
                 </td>
                 </tr>

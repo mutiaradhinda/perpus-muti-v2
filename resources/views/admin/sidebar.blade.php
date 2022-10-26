@@ -59,7 +59,7 @@
 
           <li class="nav-item">
             <a href="{{ route('authors.index') }}" class="nav-link">
-              <i class="fa-solid fa-book"></i>
+              <i class="fa fa-pencil-alt"></i>
               <p>
                 Penulis
                 <span class="right badge badge-danger"></span>
@@ -69,10 +69,9 @@
 
           <li class="nav-item">
             <a href="{{ route('publishers.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="fa fa-building"></i>
               <p>
                   Penerbit
-                <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right"></span>
               </p>
             </a>
@@ -80,79 +79,101 @@
 
           <li class="nav-item">
             <a href="{{ route('kategori.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="ion ion-pie-graph"></i>
               <p>
                 Kategori
-                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
           </li>
             
           <li class="nav-item">
             <a href="{{ route('peminjamen.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              <i class="fa-solid fa-bookmark"></i>
               <p>
                 Peminjam
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Petugas
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Anggota
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Admin
-                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa-solid fa-address-card"></i>
+              <p>
+                Petugas
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('anggota.index') }}" class="nav-link">
+              <i class="fa-solid fa-user"></i>
+              <p>
+                Anggota
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('user.index') }}" class="nav-link">
+              <i class="fa-regular fa-keyboard"></i>
+              <p>
+                Admin
+              </p>
+            </a>
+          </li>
+            
 
           <li class="nav-header">SISTEM</li>
           <li class="nav-item">
-            <a href="{{ route('penggunas.index') }}" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+            <a href="#" class="nav-link">
+              <i class="fa-solid fa-users"></i>
               <p>
                 User
-                <span class="badge badge-info right"></span>
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                User Baru
-              </p>
-            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('semua.index') }}" class="nav-link">
+                  <i class="fa-solid fa-star"></i>
+                  <p>Semua</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('user.index') }}" class="nav-link">
+                  <i class="fa-solid fa-star"></i>
+                  <p>Admin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('anggota.index') }}" class="nav-link">
+                  <i class="fa-solid fa-star"></i>  
+                  <p>Anggota</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
           <li class="nav-item">
             <a href="pages/kanban.html" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
+              <i class="fa-solid fa-lock"></i>
               <p>
                 Ganti Password
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="/logout" class="nav-link">
+            <form action="/logout" method="post">
+              <i class="fa-solid fa-lock"></i>
+              <p>
+                Logout
+              </p>
+            </form>
+          </a>
+          </li> 
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>

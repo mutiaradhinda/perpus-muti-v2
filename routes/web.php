@@ -10,6 +10,9 @@ use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SemuaController;
+use App\Http\Controllers\AnggotaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,3 +100,12 @@ Route::resource('peminjamen', PeminjamanController::class );
 
 //user
 Route::resource('penggunas', PenggunaController::class );
+
+//user admin
+Route::resource('user', UserController::class );
+
+//semua user
+Route::resource('semua', SemuaController::class );
+
+//semua user
+Route::resource('anggota', AnggotaController::class );

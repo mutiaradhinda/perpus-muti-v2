@@ -32,13 +32,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Judul Buku:</strong>
-                <input type="text" name="nama" class="form-control" value="{{old('nama')}}"autofocus>
+                <input type="text" name="nama" class="form-control" value="{{ old('nama',@$book->nama) }}""autofocus>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tahun Terbit:</strong>
-                <input type="text" name="tahun_terbit" class="form-control" value="{{ old('tahun_terbit',@$book->tahun_terbit) }}">
+                <input type="text" name="tahun_terbit" class="form-control" value="{{ old('nama',@$book->tahun_terbit) }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
