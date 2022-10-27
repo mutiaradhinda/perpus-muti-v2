@@ -40,16 +40,18 @@
         </div>
     </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>User Role:</strong>
-            <select class="form-control select2" style="width: 100%;" name="user_role">
+              <div class="form-group">
+                  <strong>User Role:</strong>
+              </div>
+          <div class="form-group">
+              <select class="form-control select2" style="width: 100%;" name="user_role" id="user_role">
               <option disabled value>User Role</option>
-              <option>Admin</option>
-              <option>Petugas</option>
-              <option>Anggota</option>
-            </select>
-            </div>
-        </div>
+              @foreach($r as $item)
+              <option value="{{ $item->id }}">{{ $item->role }}</option>
+              @endforeach
+          </select>
+          </div>
+          </div>
         
             <div class="col-xs-12 col-sm-12 col-md-12">
               <button type="submit" class="btn btn-primary">Simpan</button>

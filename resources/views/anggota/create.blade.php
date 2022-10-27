@@ -4,9 +4,14 @@
 
 <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Tambah Anggota</h2>
+        <h2 class="card-title">Tambah anggota</h2>
     </div>
-    
+
+ <div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <a href="{{ route('anggota.index') }}" class="btn btn-primary btn-sm">Kembali</a>
+    </div>
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -22,23 +27,19 @@
     <form action="{{ route('anggota.store') }}" method="post" enctype="multipart/form-data">
         @csrf
 
-    <div class="row">
+     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama:</strong>
                 <input type="text" name="nama" class="form-control" placeholder="" autofocus>
             </div>
         </div>
-    </div>
-
-     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>username:</strong>
+                <strong>Username:</strong>
                 <input type="text" name="username" class="form-control" placeholder="" autofocus>
             </div>
         </div>
-    </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>User Role:</strong>
@@ -48,14 +49,13 @@
             </select>
             </div>
         </div>
-        
-            <div class="col-xs-12 col-sm-12 col-md-12">
-              <button type="submit" class="btn btn-primary">Simpan</button>
-              <a href="{{ route('anggota.index') }}" class="btn btn-primary">Kembali</a>
-            </div>
-   
+        </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+    </div>
 
 </form>
-</div>
 </div>
 @endsection

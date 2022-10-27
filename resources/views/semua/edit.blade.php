@@ -23,7 +23,7 @@
     @endif
 
 <div class="card-body">
-<form action="{{ route('semua.update',$semua->id) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('semua.update',@$semua->id) }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
 
@@ -41,11 +41,18 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>User Role:</strong>
-                <input type="text" name="user_role" class="form-control" value="{{ old('nama',$semua->user_role) }}">
-            </div>
-        </div>
+              <div class="form-group">
+                  <strong>User Role:</strong>
+              </div>
+          <div class="form-group">
+              <select class="form-control select2" style="width: 100%;" name="user_role" id="user_role">
+              <option disabled value>User Role</option>
+              @foreach($user_role as $item)
+              <option value="{{ $item->id }}">{{ $item->role }}</option>
+              @endforeach
+          </select>
+          </div>
+          </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
                 <button type="submit" class="btn btn-primary">Simpan</button>
         </div>

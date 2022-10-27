@@ -44,7 +44,7 @@
                     <td style="text-align:center;">{{ $loop->iteration }}</td>
                     <td style="text-align:center;">{{ $value->nama }}</td>
                     <td style="text-align:center;">{{ $value->username }}</td>
-                    <td style="text-align:center;">{{ $value->user_role}}</td>
+                    <td style="text-align:center;">{{ @$value->role->role}}</td>
                 <td>
                 <form style="text-align:center;" action="{{ route('semua.destroy',$value->id) }}" method="POST">
          

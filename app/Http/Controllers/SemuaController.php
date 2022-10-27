@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Semua;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Alert;
 use Maatwebsite\Excel\Facades\Excel;
@@ -15,7 +16,7 @@ class SemuaController extends Controller
      */
     public function index()
     {
-        $semua = Semua::latest()->paginate(5);
+        $semua = Semua::with('role')->paginate(5);
 
         return view('semua.index',compact('semua'));
 
@@ -33,7 +34,8 @@ class SemuaController extends Controller
      */
     public function create()
     {
-        return view('semua.create');
+        $r = Role::all();
+        return view('semua.create', compact('r'));
     }
 
     /**
@@ -47,7 +49,7 @@ class SemuaController extends Controller
          $request->validate([
             'nama' => 'required|max:255',
             'username' => 'required',
-            'user_role' => 'required',
+            // 'user_role' => 'required',
 
         ]);
 
@@ -77,7 +79,8 @@ class SemuaController extends Controller
      */
     public function edit(Semua $semua)
     {
-        return view('semua.edit',compact('semua'));
+        $r = Role::all();
+        return view('semua.edit',compact('r'));
     }
 
     /**
@@ -92,7 +95,7 @@ class SemuaController extends Controller
          $request->validate([
             'nama' => 'required|max:255',
             'username' => 'required',
-            'user_role' => 'required',
+            // 'user_role' => 'required',
 
 
         ]);

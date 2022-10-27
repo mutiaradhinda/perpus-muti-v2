@@ -13,6 +13,7 @@ use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SemuaController;
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,5 +108,8 @@ Route::resource('user', UserController::class );
 //semua user
 Route::resource('semua', SemuaController::class );
 
-//semua user
+//semua anggota
 Route::resource('anggota', AnggotaController::class );
+
+//User Role
+Route::resource('role', RoleController::class );
