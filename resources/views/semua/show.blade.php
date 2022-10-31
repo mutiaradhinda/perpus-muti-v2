@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <th style="width: 180px">User Role</th>
-                <td>{{ $semua->user_role->role }}</td>
+                <td>{{ $semua->role->role }}</td>
             </tr>
         </table>
     </div>

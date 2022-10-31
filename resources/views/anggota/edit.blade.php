@@ -3,7 +3,7 @@
 @section('content')
    <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Edit anggota</h2>
+        <h2 class="card-title">Data Kategori</h2>
     </div>
 
 <div class="card shadow mb-4">
@@ -31,19 +31,19 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama:</strong>
-                <input type="text" name="nama" class="form-control" value="{{ old('nama',$anggota->nama) }}">
+                <input type="text" name="nama" class="form-control" value="{{ old('nama',$anggota->nama) }}" autofocus>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Username:</strong>
-                <input type="text" name="username" class="form-control" value="{{ old('nama',$anggota->username) }}" autofocus>
+                <strong>Alamat:</strong>
+                <input type="text" name="alamat" class="form-control" value="{{ old('nama',$anggota->alamat) }}" autofocus>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>User Role:</strong>
-                <input type="text" name="user_role" class="form-control" value="{{ old('nama',$anggota->user_role) }}">
+                <strong>Email:</strong>
+                <input type="text" name="email" class="form-control" value="{{ old('nama',$anggota->email) }}" autofocus>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

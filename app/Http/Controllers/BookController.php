@@ -1,4 +1,3 @@
-
 <?php
 namespace App\Http\Controllers;
 
@@ -46,7 +45,6 @@ class BookController extends Controller
         return Excel::download(new BukuExport, 'buku.xlsx');
     }
         
-
     /**
      * Show the form for creating a new resource.
      *

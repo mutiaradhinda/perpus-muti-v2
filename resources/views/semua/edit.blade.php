@@ -23,7 +23,7 @@
     @endif
 
 <div class="card-body">
-<form action="{{ route('semua.update',@$semua->id) }}" method="post" enctype="multipart/form-data">
+<form action="{{ URL('semua.update',@$semua->id) }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
 
@@ -31,13 +31,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama:</strong>
-                <input type="text" name="nama" class="form-control" value="{{ old('nama',$semua->nama) }}" autofocus>
+                <input type="text" name="nama" class="form-control" value="{{ old('nama',@$semua->nama) }}" autofocus>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Username:</strong>
-                <input type="text" name="username" class="form-control" value="{{ old('nama',$semua->username) }}" autofocus>
+                <input type="text" name="username" class="form-control" value="{{ old('nama',@$semua->username) }}" autofocus>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -47,7 +47,7 @@
           <div class="form-group">
               <select class="form-control select2" style="width: 100%;" name="user_role" id="user_role">
               <option disabled value>User Role</option>
-              @foreach($user_role as $item)
+              @foreach($r as $item)
               <option value="{{ $item->id }}">{{ $item->role }}</option>
               @endforeach
           </select>

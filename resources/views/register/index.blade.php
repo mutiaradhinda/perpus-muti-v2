@@ -39,9 +39,9 @@
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="text" name="name" class="form-control form-control-user @error('name') is_invalid @enderror" id="exampleFirstName"
-                                            placeholder="Name" value="{{ old('name') }}" autofocus>
-                                            @error('name')
+                                        <input type="text" name="username" class="form-control form-control-user @error('username') is_invalid @enderror" id="exampleFirstName"
+                                            placeholder="Username" value="{{ old('username') }}" autofocus>
+                                            @error('username')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

@@ -24,7 +24,8 @@
 
 <body class="bg-gradient-primary">
 
-    <div class="container">
+  
+  <div class="container">
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -59,10 +60,10 @@
                                     <form class="user" action="{{ url ('/login') }}" method="post">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="email" name="email" class="form-control form-control-user @error('email') is_invalid @enderror "
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." autofocus required value="{{ old('email') }}">
-                                                @error('email')
+                                            <input type="text" name="username" class="form-control form-control-user @error('username') is_invalid @enderror "
+                                                id="exampleFirstName"
+                                                placeholder="Username" autofocus required value="{{ old('username') }}">
+                                                @error('username')
                                                 <div class="invalid-feedback">
                                                 {{ $message }}
                                                 </div>

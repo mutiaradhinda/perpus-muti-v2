@@ -1,4 +1,4 @@
-@extends('pengguna.admin.admin')
+@extends('layouts.main')
 
 @section('content')
 <!DOCTYPE html>
@@ -8,11 +8,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-
-
-@include('pengguna/admin/header')
-@include('pengguna/admin/sidebar')
-@include('pengguna/admin/footer')
 
 <div class="container">
     @yield('content')

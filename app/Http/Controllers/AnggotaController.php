@@ -46,8 +46,8 @@ class AnggotaController extends Controller
     {
          $request->validate([
             'nama' => 'required|max:255',
-            'username' => 'required',
-            'user_role' => 'required',
+            'alamat' => 'required',
+            'email' => 'required',
 
         ]);
 
@@ -91,8 +91,8 @@ class AnggotaController extends Controller
     {
          $request->validate([
             'nama' => 'required|max:255',
-            'username' => 'required',
-            'user_role' => 'required',
+            'alamat' => 'required',
+            'email' => 'required',
 
 
         ]);

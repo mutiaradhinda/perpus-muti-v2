@@ -39,7 +39,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="/admin" class="nav-link active">
+            <a href="/dashboard" class="nav-link active">
               <i class="fa fa-tachometer" aria-hidden="true"></i>
               <p>
                 Dashboard

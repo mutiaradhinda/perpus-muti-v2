@@ -33,12 +33,12 @@
 
 
 <!-- Navbar -->
-  @include('admin/header')
+  @include('dashboard/header')
 <!-- /.navbar -->
 
 
 <!-- Main Sidebar Container -->
-  @include('admin/sidebar')
+  @include('dashboard/sidebar')
 <!-- /.sidebar -->
 
   <!-- Content Wrapper. Contains page content -->
@@ -206,7 +206,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-    @include('admin/footer')
+    @include('dashboard/footer')
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

@@ -30,7 +30,7 @@
             Welcome back, {{ auth()->user()->name }}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ url ('/admin') }}">My Dashboard</a></li>
+            <li><a class="dropdown-item" href="{{ url ('/dashboard') }}">My Dashboard</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
               <form action="{{ url ('/logout') }}" method="post">

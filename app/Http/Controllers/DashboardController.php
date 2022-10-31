@@ -8,7 +8,7 @@ use App\Models\Penerbit;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,7 +29,7 @@ class AdminController extends Controller
         $query =  Kategori::query();
         $kategori =  $query->count();
 
-        return view('admin.admin', [
+        return view('dashboard.index', [
             'title' => 'Dashboard',
             'buku' => $buku,
             'penulis' => $penulis,

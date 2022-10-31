@@ -13,12 +13,12 @@
                 <td>{{ $anggota->nama }}</td>
             </tr>
             <tr>
-                <th style="width: 180px">Username</th>
-                <td>{{ $anggota->username }}</td>
+                <th style="width: 180px">Alamat</th>
+                <td>{{ $anggota->alamat }}</td>
             </tr>
             <tr>
-                <th style="width: 180px">User Role</th>
-                <td>{{ $anggota->user_role }}</td>
+                <th style="width: 180px">Email</th>
+                <td>{{ $anggota->email }}</td>
             </tr>
         </table>
     </div>

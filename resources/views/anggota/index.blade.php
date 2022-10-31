@@ -23,6 +23,9 @@
 
     <div class="card-body">
         <div style="margin-bottom: 20px">
+            <a href="{{ route('anggota.create') }}" class="btn btn-primary btn-flat">
+                <i class="fa fa-plus-circle"></i> Tambah Data
+            </a>
             <a href="{{ url('excel') }}" class="btn btn-success btn-flat">
                 <i class="fa fa-file-excel"></i> Export Excel
             </a>
@@ -32,16 +35,16 @@
                 <tr>
                     <th style="text-align:center;">No</th>
                     <th style="text-align:center;">Nama</th>
-                    <th style="text-align:center">Username</th>
-                    <th style="text-align:center">User Role</th>
+                    <th style="text-align:center">Alamat</th>
+                    <th style="text-align:center">Email</th>
                     <th width="250px" style="text-align: center;">Action</th>
                 </tr>
                 @foreach ($anggota as $value)
                 <tr>
                     <td style="text-align:center;">{{ $loop->iteration }}</td>
                     <td style="text-align:center;">{{ $value->nama }}</td>
-                    <td style="text-align:center;">{{ $value->username }}</td>
-                    <td style="text-align:center;">{{ $value->user_role}}</td>
+                    <td style="text-align:center;">{{ $value->alamat }}</td>
+                    <td style="text-align:center;">{{ $value->email}}</td>
                 <td>
                 <form style="text-align:center;" action="{{ route('anggota.destroy',$value->id) }}" method="POST">
          
