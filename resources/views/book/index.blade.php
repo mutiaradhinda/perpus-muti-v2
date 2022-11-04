@@ -48,14 +48,14 @@
                 </tr>
                 @foreach ($book as $value)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $value->nama }}</td>
-                    <td>{{ $value->tahun_terbit }}</td>
-                    <td>{{ @$value->author->nama }}</td>
-                    <td>{{ @$value->publisher->nama }}</td>
-                    <td>{{ $value->kategori->kategori }}</td>
-                    <td>{{ $value->sinopsis }}</td>
-                    <td><img src="/image/{{ $value->image }}" width="100px"></td>
+                    <td style="text-align:center">{{ $loop->iteration }}</td>
+                    <td style="text-align:center">{{ $value->nama }}</td>
+                    <td style="text-align:center" style="text-align:center">{{ $value->tahun_terbit }}</td>
+                    <td style="text-align:center">{{ @$value->author->nama }}</td>
+                    <td style="text-align:center">{{ @$value->publisher->nama }}</td>
+                    <td style="text-align:center">{{ $value->kategori->kategori }}</td>
+                    <td style="text-align:center">{{ $value->sinopsis }}</td>
+                    <td style="text-align:center"><img src="/image/{{ $value->image }}" width="100px"></td>
                 <td>
                 <form action="{{ route('book.destroy',$value->id) }}" method="POST">
          

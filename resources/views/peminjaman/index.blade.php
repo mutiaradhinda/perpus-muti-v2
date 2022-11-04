@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="card card-primary">
+    <div class="card-header">
+        <h2 class="card-title">Data Penulis</h2>
+    </div>
+
     <div class="row" style="margin-top: 1rem;">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -16,52 +21,56 @@
         </div>
     @endif
 
-    <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <a href="{{ route('peminjamen.create') }}" class="btn btn-primary btm-sm">Create</a>
-    </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center" id="id" width="100%" cellspacing="0">
-        <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Buku</th>
-            <th>Anggota</th>
-            <th>Tanggal Pinjam</th>
-            <th>Tanggal Kembali</th>
-            <th>Denda</th>
-            <th>Status</th>
-            <th width="300px">Action</th>
-        </tr>
-        @foreach ($data as $key => $value)
-        <tr>
-            <td>{{ ++$i }}</td>
-            <td>{{ $value->nama }}</td>
-            <td>{{ $value->id_buku }}</td>
-            <td>{{ $value->id_anggota }}</td>
-            <td>{{ $value->tanggal_pinjam }}</td>
-            <td>{{ $value->tanggal_kembali }}</td>
-            <td>{{ $value->denda }}</td>
-            <td>{{ $value->status }}</td>
-            <td>
-        <form action="{{ route('peminjamen.destroy',$value->id) }}" method="POST">
-     
-            <a class="btn btn-info" href="{{ route('peminjamen.show',$value->id) }}">Show</a>
-      
-            <a class="btn btn-primary" href="{{ route('peminjamen.edit',$value->id) }}">Edit</a>
-     
-                    @csrf
-                    @method('DELETE')
-        
-                    <button type="submit" class="btn btn-danger">Delete</button>
+        <div style="margin-bottom: 20px">
+            <a href="{{ route('peminjamen.create') }}" class="btn btn-primary btn-flat">
+                <i class="fa fa-plus-circle"></i> Tambah Data
+            </a>
+            <a href="{{ url('export') }}" class="btn btn-danger btn-flat">
+                <i class="fa fa-file-pdf"></i> Export PDF
+            </a>
+            <a href="{{ url('excel') }}" class="btn btn-success btn-flat">
+                <i class="fa fa-file-excel"></i> Export Excel
+            </a>
+        </div>
+        <div style="overflow: auto">
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th style="text-align:center;">No</th>
+                    <th style="text-align:center">Nama Buku</th>
+                    <th style="text-align:center">Nama Anggota</th>
+                    <th style="text-align:center;">Tanggal Pinjam</th>
+                    <th style="text-align:center;">Tanggal Kembali</th>
+                    <th style="text-align:center;">Denda</th>
+                    <th style="text-align:center;">Status</th>
+                    <th width="250px" style="text-align: center;">Action</th>
+                </tr>
+                @foreach ($peminjaman as $value)
+                <tr>
+                   <td>{{ $loop->iteration }}</td>
+                    <td>{{ $value->book->nama }}</td>
+                    <td>{{ $value->anggota }}</td>
+                    <td>{{ $value->tanggal_pinjam }}</td>
+                    <td>{{ $value->tanggal_kembali }}</td>
+                    <td>{{ $value->denda }}</td>
+                    <td>{{ $value->status }}</td>
+                <td>
+                <form action="{{ route('peminjamen.destroy',$value->id) }}" method="POST">
+         
+                    <a class="btn btn-info" href="{{ route('peminjamen.show',$value->id) }}">Show</a>
+          
+                    <a class="btn btn-primary" href="{{ route('peminjamen.edit',$value->id) }}">Edit</a>
+         
+                        @csrf
+                        @method('DELETE')
+            
+                        <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>
+                </td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
     </div>
 </div>
-</div>
-    {!! $data->links() !!}
 @endsection

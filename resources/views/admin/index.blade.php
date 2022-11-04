@@ -1,10 +1,10 @@
-@extends('user.layout')
+@extends('admin.layout')
 
 @section('content')
 
 <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Data User</h2>
+        <h2 class="card-title">Data Admin</h2>
     </div>
 
     <div class="row" style="margin-top: 1rem;">
@@ -23,6 +23,9 @@
 
     <div class="card-body">
         <div style="margin-bottom: 20px">
+            <a href="{{ route('admin.create') }}" class="btn btn-primary btn-flat">
+                <i class="fa fa-plus-circle"></i> Tambah Data
+            </a>
             <a href="{{ url('excel') }}" class="btn btn-success btn-flat">
                 <i class="fa fa-file-excel"></i> Export Excel
             </a>
@@ -31,23 +34,25 @@
             <table class="table table-bordered table-condensed">
                 <tr>
                     <th style="text-align:center;">No</th>
-                    <th style="text-align:center;">Nama</th>
-                    <th style="text-align:center">Username</th>
                     <th style="text-align:center">User Role</th>
+                    <th style="text-align:center">Username</th>
+                    <th style="text-align:center;">Password</th>
+                    <th style="text-align:center">Nama Admin</th>
                     <th width="250px" style="text-align: center;">Action</th>
                 </tr>
-                @foreach ($user as $value)
+                @foreach ($admin as $value)
                 <tr>
                     <td style="text-align:center;">{{ $loop->iteration }}</td>
-                    <td style="text-align:center;">{{ $value->nama }}</td>
+                    <td style="text-align:center;">{{ @$value->role->role}}</td>
                     <td style="text-align:center;">{{ $value->username }}</td>
-                    <td style="text-align:center;">{{ $value->user_role}}</td>
+                    <td style="text-align:center;">{{ $value->password }}</td>
+                    <td style="text-align:center;">{{ @$value->role->role}}</td>
                 <td>
-                <form style="text-align:center;" action="{{ route('user.destroy',$value->id) }}" method="POST">
+                <form style="text-align:center;" action="{{ route('admin.destroy',$value->id) }}" method="POST">
          
-                    <a class="btn btn-info" href="{{ route('user.show',$value->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('admin.show',$value->id) }}">Show</a>
           
-                    <a class="btn btn-primary" href="{{ route('user.edit',$value->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('admin.edit',$value->id) }}">Edit</a>
          
                         @csrf
                         @method('DELETE')

@@ -1,63 +1,53 @@
-@extends('peminjaman.layout')
+@extends('book.layout')
 
 @section('content')
-   
-    <div class="row" style="margin-top: 1rem;">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left"></div>
-        </div>
-     </div>
-     
-    <div class="card-header py-3">
-        <a href="{{ route('peminjamen.index') }}" class="btn btn-primary btm-sm">Kembali</a>
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h2 class="card-title">Data Peminjaman</h2>
     </div>
+    <div class="card shadow mb-4">
+<div class="card-header py-3">
+    <a href="{{ route('peminjamen.index') }}" class="btn btn-primary btn-sm">Kembali</a>
 
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Judul:</strong>
-                {{ $peminjaman->nama }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Buku:</strong>
-                {{ $peminjaman->id_buku }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Anggota:</strong>
-                {{ $peminjaman->id_anggota }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Tanggal Pinjam:</strong>
-                {{ $peminjaman->tanggal_pinjam}}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Tanggal Kembali:</strong>
-                {{ $peminjaman->tanggal_kembali }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Denda:</strong>
-                {{ $peminjaman->denda }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Status:</strong>
-                {{ $peminjaman->status }}
-            </div>
-        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <tr>
+                <th style="width: 180px">Nama</th>
+                <td>{{ $data->book->nama }}</td>
+            </tr>
+            <tr>
+                <th style="width: 180px">Tahun Terbit</th>
+                <td>{{ $data->tahun_terbit }}</td>
+            </tr>
+            <tr>
+                <th style="width: 180px">Penulis</th>
+                <td>{{ $data->author->nama }}</td>
+            </tr>
+            <tr>
+                <th style="width: 180px">Penerbit</th>
+                <td>{{ $data->publisher->nama }}</td>
+            </tr>
+            <tr>
+                <th style="width: 180px">Kategori</th>
+                <td>{{ $book->kategori->kategori }}</td>
+            </tr>
+            <tr>
+                <th style="width: 180px">Kategori</th>
+                <td>{{ $book->kategori->kategori }}</td>
+            </tr>
+            <tr>
+                <th style="width: 180px">Sinopsis</th>
+                <td>{{ $book->sinopsis }}</td>
+            </tr>
+            <tr>
+                <th style="width: 180px">Sampul</th>
+                <td><img src="/image/{{ $book->image }}" width="100px"></td>
+            </tr>
+        </table>
     </div>
 </div>
-    
-
+</div>
 @endsection
+

@@ -1,12 +1,14 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Users;
+use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Alert;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +17,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = Users::latest()->paginate(5);
+        $admin = User::with('role')->paginate(5);
 
-        return view('user.index',compact('user'));
+        return view('admin.index',compact('admin'));
 
     }
 
     public function excel()
     {
-        return Excel::download(new UserExport, 'user.xlsx');
+        return Excel::download(new adminExport, 'admin.xlsx');
     }
 
     /**
@@ -33,7 +35,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        $u = Role::all();
+        return view('admin.create', compact('u'));
     }
 
     /**
@@ -44,18 +47,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
-            'nama' => 'required|max:255',
+         $validatedData = $request -> validate([
             'username' => 'required',
-            'user_role' => 'required',
+            'password' => 'required|min:5|max:255',
+            // 'nama_admin' => 'required',
+            // 'user_role' => 'required',
 
         ]);
+         $validatedData['password'] = Hash::make($validatedData['password']);
+
+         User::create($validatedData);
 
          $input = $request->all();
 
-        Users::create($input);
+        User::create($input);
         toast('Created successfully!', 'success');
-        return redirect()->route('user.index');
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -64,9 +71,9 @@ class UserController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Users $user)
+    public function show(User $admin)
     {
-        return view('user.show',compact('user'));
+        return view('admin.show',compact('admin'));
     }
 
     /**
@@ -75,9 +82,10 @@ class UserController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Users $user)
+    public function edit(User $admin)
     {
-        return view('user.edit',compact('user'));
+        $u = Role::all();
+        return view('admin.edit', compact('u'));
     }
 
     /**
@@ -87,21 +95,21 @@ class UserController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $user)
+    public function update(Request $request, User $admin)
     {
          $request->validate([
-            'nama' => 'required|max:255',
             'username' => 'required',
-            'user_role' => 'required',
-
+            'password' => 'required',
+            // 'nama_admin' => 'required',
+            // 'user_role' => 'required',
 
         ]);
 
          $input = $request->all();
   
-        $user->update($input);
+        $admin->update($input);
         toast('Update successfully!', 'success');
-        return redirect()->route('user.index');
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -110,10 +118,10 @@ class UserController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users $user)
+    public function destroy(User $admin)
     {
-        $user->delete();
+        $admin->delete();
         toast('Delete successfully!', 'success');
-        return redirect()->route('user.index');
+        return redirect()->route('admin.index');
     }
 }

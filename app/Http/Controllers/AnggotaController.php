@@ -3,8 +3,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Anggota;
 use Illuminate\Http\Request;
-use Alert;
+use App\Exports\PenulisExport;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class AnggotaController extends Controller
 {
@@ -23,7 +24,7 @@ class AnggotaController extends Controller
 
     public function excel()
     {
-        return Excel::download(new anggotaExport, 'anggota.xlsx');
+        return Excel::download(new PenulisExport, 'penulis.xlsx');
     }
 
     /**
@@ -47,15 +48,15 @@ class AnggotaController extends Controller
          $request->validate([
             'nama' => 'required|max:255',
             'alamat' => 'required',
-            'email' => 'required',
+            'email' => 'required'
 
         ]);
 
-         $input = $request->all();
-
+        $input = $request->all();
+  
         Anggota::create($input);
-        toast('Created successfully!', 'success');
-        return redirect()->route('anggota.index');
+        toast('Data Berhasil Ditambahkan!', 'success');
+        return redirect()->route('anggotas.index');
     }
 
     /**
@@ -92,16 +93,15 @@ class AnggotaController extends Controller
          $request->validate([
             'nama' => 'required|max:255',
             'alamat' => 'required',
-            'email' => 'required',
-
+            'email' => 'required'
 
         ]);
 
-         $input = $request->all();
-  
+        $input = $request->all();
+
         $anggota->update($input);
-        toast('Update successfully!', 'success');
-        return redirect()->route('anggota.index');
+        toast('Data Berhasil Diedit!', 'success');
+        return redirect()->route('anggotas.index');
     }
 
     /**
@@ -113,7 +113,7 @@ class AnggotaController extends Controller
     public function destroy(Anggota $anggota)
     {
         $anggota->delete();
-        toast('Delete successfully!', 'success');
-        return redirect()->route('anggota.index');
+        toast('Data Berhasil Dihapus!', 'success');
+        return redirect()->route('anggotas.index');
     }
 }

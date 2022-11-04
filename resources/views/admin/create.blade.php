@@ -1,12 +1,14 @@
-@extends('semua.layout')
+@extends('admin.layout')
 
 @section('content')
 
 <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Tambah User</h2>
+        <h2 class="card-title">Tambah Admin</h2>
     </div>
-    
+
+ <div class="card shadow mb-4">
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -19,9 +21,10 @@
 @endif
     
     <div class="card-body">
-    <form action="{{ route('semua.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-<div class="row">
+
+     <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
               <div class="form-group">
                   <strong>User Role:</strong>
@@ -29,7 +32,7 @@
           <div class="form-group">
               <select class="form-control select2" style="width: 100%;" name="user_role" id="user_role" autofocus>
               <option disabled value>User Role</option>
-              @foreach($r as $item)
+              @foreach($u as $item)
               <option value="{{ $item->id }}">{{ $item->role }}</option>
               @endforeach
           </select>
@@ -37,20 +40,15 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>username:</strong>
-                <input type="text" name="username" class="form-control">
+                <strong>Username:</strong>
+                <input type="text" name="username" class="form-control" placeholder="" autofocus>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Password:</strong>
-                <input type="password" name="password" class="form-control form-control-user @error('password') is_invalid @enderror"
-                id="exampleInputPassword">
-                    @error('password')
-                <div class="invalid-feedback">
-                    {{ $message }}
+                <input type="password" name="password" class="form-control">
             </div>
-            @enderror
         </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
               <div class="form-group">
@@ -59,21 +57,17 @@
           <div class="form-group">
               <select class="form-control select2" style="width: 100%;" name="user_role" id="user_role">
               <option disabled value>Nama Admin</option>
-              @foreach($r as $item)
+              @foreach($u as $item)
               <option value="{{ $item->id }}">{{ $item->role }}</option>
               @endforeach
           </select>
-          </div>
         </div>
     </div>
-        
-        
-            <div class="col-xs-12 col-sm-12 col-md-12">
-              <button type="submit" class="btn btn-primary">Simpan</button>
-              <a href="{{ route('semua.index') }}" class="btn btn-primary">Kembali</a>
-            </div>
-   
 
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <button type="submit" class="btn btn-primary">Simpan</button>
+            <a href="{{ route('admin.index') }}" class="btn btn-primary">Kembali</a>
+        </div>
 </form>
 </div>
 </div>

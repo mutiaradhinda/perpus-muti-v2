@@ -4,7 +4,7 @@
 
 <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Data User</h2>
+        <h2 class="card-title">Data Anggota</h2>
     </div>
     <div class="card-body">
         <table class="table table-bordered">

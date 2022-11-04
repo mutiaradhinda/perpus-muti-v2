@@ -3,12 +3,12 @@
 @section('content')
    <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Data Kategori</h2>
+        <h2 class="card-title">Edit Data Anggota</h2>
     </div>
 
 <div class="card shadow mb-4">
 <div class="card-header py-3">
-    <a href="{{ route('anggota.index') }}" class="btn btn-primary btn-sm">Kembali</a>
+    <a href="{{ route('anggotas.index') }}" class="btn btn-primary btn-sm">Kembali</a>
 </div>
 
 @if ($errors->any())
@@ -23,7 +23,7 @@
     @endif
 
 <div class="card-body">
-<form action="{{ route('anggota.update',$anggota->id) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('anggotas.update',$anggota->id) }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
 
@@ -37,13 +37,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Alamat:</strong>
-                <input type="text" name="alamat" class="form-control" value="{{ old('nama',$anggota->alamat) }}" autofocus>
+                <input type="text" name="alamat" class="form-control" value="{{ old('nama',$anggota->alamat) }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Email:</strong>
-                <input type="text" name="email" class="form-control" value="{{ old('nama',$anggota->email) }}" autofocus>
+                <input type="text" name="email" class="form-control" value="{{ old('nama',$anggota->email) }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

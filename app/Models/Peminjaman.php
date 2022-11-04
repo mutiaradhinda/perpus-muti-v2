@@ -12,7 +12,7 @@ class Peminjaman extends Model
     protected $table = "peminjamen";
     protected $primaryKey = "id";
     protected $fillable = [
-        'nama', 'id_buku', 'id_anggota', 'tanggal_pinjam', 'tanggal_kembali', 'denda', 'status'
+        'id_buku', 'anggota', 'tanggal_pinjam', 'tanggal_kembali', 'denda', 'status'
     ];
 
      public function book()

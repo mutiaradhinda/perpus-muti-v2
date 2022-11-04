@@ -106,24 +106,24 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="{{ route('semua.index') }}" class="nav-link">
                   <i class="fa-solid fa-list"></i>
                   <p>Semua</p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
-                <a href="{{ route('user.index') }}" class="nav-link">
+                <a href="{{ route('admin.index') }}" class="nav-link">
                   <i class="fa-regular fa-keyboard"></i>
                   <p>Admin</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{ route('anggota.index') }}" class="nav-link">
+              <!-- <li class="nav-item">
+                <a href="{{ route('anggotas.index') }}" class="nav-link">
                   <i class="fa-solid fa-user"></i>  
                   <p>Anggota</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
 

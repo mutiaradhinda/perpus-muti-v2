@@ -39,9 +39,8 @@ class PeminjamanController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-            'nama' => 'required|max:255',
             // 'id_buku' => 'required',
-            // 'id_anggota' => 'required',
+            'anggota' => 'required',
             'tanggal_pinjam' => 'required',
             'tanggal_kembali' => 'required',
             'denda' => 'required',
@@ -90,9 +89,8 @@ class PeminjamanController extends Controller
     public function update(Request $request, Peminjaman $peminjaman)
     {
         $request->validate([
-            'nama' => 'required|max:255',
             // 'id_buku' => 'required',
-            // 'id_anggota' => 'required',
+            'anggota' => 'required',
             'tanggal_pinjam' => 'required',
             'tanggal_kembali' => 'required',
             'denda' => 'required',

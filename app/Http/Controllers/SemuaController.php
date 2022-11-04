@@ -47,8 +47,9 @@ class SemuaController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-            'nama' => 'required|max:255',
             'username' => 'required',
+             'password' => 'required',
+             // 'nama_admin' => 'required',
             // 'user_role' => 'required',
 
         ]);
@@ -93,14 +94,15 @@ class SemuaController extends Controller
     public function update(Request $request, Semua $semua)
     {
          $request->validate([
-            'nama' => 'required|max:255',
             'username' => 'required',
+             'password' => 'required',
+             // 'nama_admin' => 'required',
             // 'user_role' => 'required',
 
 
         ]);
 
-         $input = $request->all();
+        $input = $request->all();
   
         $semua->update($input);
         toast('Update successfully!', 'success');

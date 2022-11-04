@@ -7,13 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Anggota extends Model
 {
-   
-    protected $table = "anggota";
+    protected $table = "anggotas";
     protected $primaryKey = "id";
     protected $fillable = [
         'nama', 'alamat', 'email'
     ];
-
-     
-
 }

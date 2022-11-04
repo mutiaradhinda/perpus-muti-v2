@@ -10,7 +10,7 @@ use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PenggunaController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SemuaController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\RoleController;
@@ -50,15 +50,6 @@ Route::get('/categories', function () {
         "title" =>"Categories",
     ]);
 });
-
-// Route::get('/data buku', function () {
-//     return view('buku',[
-//         "title" =>"Data Buku",
-//         "image" =>"laut bercerita.jpg", "filosofi teras.jpg",
-//     ]);
-// });
-
-Route::get('/data buku', [BookController::class, 'singlePost']);
 
 
 //login
@@ -103,13 +94,13 @@ Route::resource('peminjamen', PeminjamanController::class );
 Route::resource('penggunas', PenggunaController::class );
 
 //user admin
-Route::resource('user', UserController::class );
+Route::resource('admin', AdminController::class );
 
 //semua user
 Route::resource('semua', SemuaController::class );
 
 //semua anggota
-Route::resource('anggota', AnggotaController::class );
+Route::resource('anggotas', AnggotaController::class );
 
 //User Role
 Route::resource('role', RoleController::class );

@@ -23,7 +23,7 @@
 
     <div class="card-body">
         <div style="margin-bottom: 20px">
-            <a href="{{ route('anggota.create') }}" class="btn btn-primary btn-flat">
+            <a href="{{ route('anggotas.create') }}" class="btn btn-primary btn-flat">
                 <i class="fa fa-plus-circle"></i> Tambah Data
             </a>
             <a href="{{ url('excel') }}" class="btn btn-success btn-flat">
@@ -34,28 +34,28 @@
             <table class="table table-bordered table-condensed">
                 <tr>
                     <th style="text-align:center;">No</th>
-                    <th style="text-align:center;">Nama</th>
+                    <th style="text-align:center">Nama</th>
                     <th style="text-align:center">Alamat</th>
-                    <th style="text-align:center">Email</th>
+                    <th style="text-align:center;">Email</th>
                     <th width="250px" style="text-align: center;">Action</th>
                 </tr>
                 @foreach ($anggota as $value)
                 <tr>
-                    <td style="text-align:center;">{{ $loop->iteration }}</td>
-                    <td style="text-align:center;">{{ $value->nama }}</td>
-                    <td style="text-align:center;">{{ $value->alamat }}</td>
-                    <td style="text-align:center;">{{ $value->email}}</td>
+                   <td>{{ $loop->iteration }}</td>
+                    <td>{{ $value->nama }}</td>
+                    <td>{{ $value->alamat }}</td>
+                    <td>{{ $value->email }}</td>
                 <td>
-                <form style="text-align:center;" action="{{ route('anggota.destroy',$value->id) }}" method="POST">
+                <form action="{{ route('anggotas.destroy',$value->id) }}" method="POST">
          
-                    <a class="btn btn-info" href="{{ route('anggota.show',$value->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('anggotas.show',$value->id) }}">Show</a>
           
-                    <a class="btn btn-primary" href="{{ route('anggota.edit',$value->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('anggotas.edit',$value->id) }}">Edit</a>
          
                         @csrf
                         @method('DELETE')
             
-                        <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
                 </td>
                 </tr>

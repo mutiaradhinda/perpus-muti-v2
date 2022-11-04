@@ -52,7 +52,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
               <button type="submit" class="btn btn-primary">Simpan</button>
-              <a href="{{ route('author.index') }}" class="btn btn-warning">Kembali</a>
+              <a href="{{ route('authors.index') }}" class="btn btn-warning">Kembali</a>
           </div>
 
 </form>

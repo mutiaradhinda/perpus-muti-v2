@@ -4,12 +4,7 @@
 
 <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Tambah anggota</h2>
-    </div>
-
- <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <a href="{{ route('anggota.index') }}" class="btn btn-primary btn-sm">Kembali</a>
+        <h2 class="card-title">Create Data Anggota</h2>
     </div>
 
 @if ($errors->any())
@@ -24,7 +19,7 @@
 @endif
     
     <div class="card-body">
-    <form action="{{ route('anggota.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('anggotas.store') }}" method="post" enctype="multipart/form-data">
         @csrf
 
      <div class="row">
@@ -37,21 +32,23 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Alamat:</strong>
-                <input type="text" name="alamat" class="form-control" placeholder="" autofocus>
+                <input type="text" name="alamat" class="form-control" placeholder="">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Email:</strong>
-                <input type="text" name="email" class="form-control" placeholder="" autofocus>
+                <input type="text" name="email" class="form-control" placeholder="">
             </div>
         </div>
+
         </div>
-        </div>
+        
         <div class="col-xs-12 col-sm-12 col-md-12">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-        </div>
-    </div>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+              <a href="{{ route('anggotas.index') }}" class="btn btn-warning">Kembali</a>
+          </div>
+      </div>
 
 </form>
 </div>

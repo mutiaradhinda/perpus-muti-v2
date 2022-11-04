@@ -5,20 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Semua extends Model
+class Admin extends Model
 {
    
-    protected $table = "semua";
+    protected $table = "admin";
     protected $primaryKey = "id";
-    protected $timestamp = false;
     protected $fillable = [
-        'password', 'username', 'user_role', 'nama_admin'
+        'password', 'username', 'user_role', 'nama_admin', 'email'
     ];
 
-    public function role()
+     public function role()
     {
         return $this->belongsTo(Role::class, 'user_role', 'id');
     }
-     
 
 }
