@@ -1,4 +1,4 @@
-@extends('role.layout')
+@extends('layouts.main')
 
 @section('content')
 

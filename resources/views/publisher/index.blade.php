@@ -1,4 +1,4 @@
-@extends('publisher.layout')
+@extends('layouts.main')
 
 @section('content')
 
@@ -47,7 +47,7 @@
                 </tr>
                 @foreach ($data as $value)
                 <tr>
-                   <td>{{ $loop->iteration }}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $value->nama }}</td>
                     <td>{{ $value->alamat }}</td>
                     <td>{{ $value->telepon }}</td>

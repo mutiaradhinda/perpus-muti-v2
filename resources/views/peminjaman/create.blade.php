@@ -1,4 +1,4 @@
-@extends('peminjaman.layout')
+@extends('layouts.main')
 
 @section('content')
 

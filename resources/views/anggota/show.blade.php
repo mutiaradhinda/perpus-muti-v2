@@ -1,4 +1,4 @@
-@extends('anggota.layout')
+@extends('layouts.main')
 
 @section('content')
 
