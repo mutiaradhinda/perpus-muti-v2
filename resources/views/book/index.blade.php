@@ -56,7 +56,7 @@
                     <td style="text-align:center">{{ $value->kategori->kategori }}</td>
                     <td style="text-align:center">{{ $value->sinopsis }}</td>
                     <td style="text-align:center"><img src="/image/{{ $value->image }}" width="100px"></td>
-                <td>
+                <td style="text-align:center">
                 <form action="{{ route('book.destroy',$value->id) }}" method="POST">
          
                     <a class="btn btn-info" href="{{ route('book.show',$value->id) }}">Show</a>

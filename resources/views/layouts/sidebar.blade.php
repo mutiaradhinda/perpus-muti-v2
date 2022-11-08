@@ -39,7 +39,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="/dashboard" class="nav-link active">
+            <a href="{{ url('/dashboard') }}" class="nav-link active">
               <i class="fa fa-tachometer" aria-hidden="true"></i>
               <p>
                 Dashboard
@@ -48,7 +48,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="/book" class="nav-link">
+            <a href="{{ url('/book') }}" class="nav-link">
               <i class="fa-solid fa-book"></i>
               <p>
                 Data Buku
