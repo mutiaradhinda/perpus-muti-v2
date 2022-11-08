@@ -64,7 +64,14 @@
                     <th width="200px" style="text-align: center;">Sinopsis</th>
                     <th style="text-align:center;">Sampul</th>
                 </tr>
+                <?php $no=1; foreach ($publisher->getListBuku() as $buku): ?>
+                <tr>
+                    <td><?= $no; ?></td>
+                    <td><?= $buku->nama; ?></td>
+                    <td><?= $buku->author->nama; ?></td>
+                </tr>
             </table>
+            <?php $no++; endforeach ?>
         </div>
     </div>
 </div>
