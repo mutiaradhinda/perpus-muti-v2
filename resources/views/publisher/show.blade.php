@@ -60,18 +60,23 @@
                     <th style="text-align:center;">Tahun Terbit</th>
                     <th style="text-align:center;">Penulis</th>
                     <th style="text-align:center;">Penerbit</th>
-                    <th style="text-align:center";>Kategori</th>
+                    <th style="text-align:center">Kategori</th>
                     <th width="200px" style="text-align: center;">Sinopsis</th>
                     <th style="text-align:center;">Sampul</th>
                 </tr>
                 <?php $no=1; foreach ($publisher->getListBuku() as $buku): ?>
                 <tr>
-                    <td><?= $no; ?></td>
-                    <td><?= $buku->nama; ?></td>
-                    <td><?= $buku->author->nama; ?></td>
+                    <td style="text-align:center;"><?= $no; ?></td>
+                    <td style="text-align:center;"><?= $buku->nama; ?></td>
+                    <td style="text-align:center;"><?= $buku->tahun_terbit; ?></td>
+                    <td style="text-align:center;"><?= $buku->author->nama; ?></td>
+                    <td style="text-align:center;"><?= $buku->publisher->nama; ?></td>
+                    <td style="text-align:center;"><?= $buku->kategori->kategori; ?></td>
+                    <td style="text-align:center;"><?= $buku->sinopsis; ?></td>
+                    <td style="text-align:center;"><img src="/image/{{ $buku->image }}" width="100px"></td>
                 </tr>
+                <?php $no++; endforeach ?>
             </table>
-            <?php $no++; endforeach ?>
         </div>
     </div>
 </div>

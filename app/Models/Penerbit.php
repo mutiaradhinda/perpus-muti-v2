@@ -31,9 +31,8 @@ class Penerbit extends Model
 
     public function getListBuku()
     {
-        return Book::find()
-            ->andWhere('id_penerbit', '=', $this->id)
-            ->all();
+       return Book::where('id_penerbit', '=', $this->id)
+            ->get();
     }
 
 }
