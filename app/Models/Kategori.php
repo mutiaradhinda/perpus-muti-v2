@@ -28,5 +28,11 @@ class Kategori extends Model
         return $query->count();
     }
 
+    public function getListBuku()
+    {
+       return Book::where('id_kategori', '=', $this->id)
+            ->get();
+    }
+
 
 }

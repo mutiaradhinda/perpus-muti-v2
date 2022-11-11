@@ -39,4 +39,10 @@ class Author extends Model
         return $data;
     }
 
+    public function getListBuku()
+    {
+       return Book::where('id_penulis', '=', $this->id)
+            ->get();
+    }
+
 }

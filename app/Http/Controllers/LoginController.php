@@ -21,9 +21,23 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
+
         if(Auth::attempt($credentials)){
-            $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            // if(Auth::user()->id_user_role == 1){
+            //     $request->session()->regenerate();    
+            //     return redirect()->intended('/dashboard');
+            // }
+
+            // if(Auth::user()->id_user_role == 2){
+            //     // dd('ini pegawai');
+            //     $request->session()->regenerate();    
+            //     return redirect()->intended('/dashboard');
+            // }
+
+            $request->session()->regenerate();    
+                return redirect()->intended('/dashboard');
+            
+            
         }
 
         return back()->with('loginError', 'Login Failed');  
