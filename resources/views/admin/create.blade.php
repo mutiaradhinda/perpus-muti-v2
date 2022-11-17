@@ -6,9 +6,7 @@
     <div class="card-header">
         <h2 class="card-title">Tambah Admin</h2>
     </div>
-
- <div class="card shadow mb-4">
-
+<div class="card shadow mb-4">
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>

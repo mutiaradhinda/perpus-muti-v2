@@ -18,7 +18,16 @@ class publisherController extends Controller
     {
         $data = Penerbit::latest()->paginate(5);
 
-        return view('publisher.index',compact('data'));
+        return view('publisher.index',compact('data'), [
+            'title' => 'Penerbit',
+        ]);
+    }
+
+    public function Penerbit()
+    {
+        $data = Penerbit::latest()->paginate(5);
+
+        return view('publisher.index_anggota',compact('data'));
     }
 
      public function pdf()

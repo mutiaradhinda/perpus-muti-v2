@@ -14,9 +14,11 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        $data = Peminjaman::with('book')->paginate(5);
+        $peminjaman = Peminjaman::with('book')->paginate(5);
 
-        return view('peminjaman.index',compact('data'));
+        return view('peminjaman.index',compact('peminjaman'), [
+            'title' => 'Peminjaman',
+        ]);
     }
 
     /**

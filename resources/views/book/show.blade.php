@@ -34,10 +34,6 @@
                 <td>{{ $book->kategori->kategori }}</td>
             </tr>
             <tr>
-                <th style="width: 180px">Kategori</th>
-                <td>{{ $book->kategori->kategori }}</td>
-            </tr>
-            <tr>
                 <th style="width: 180px">Sinopsis</th>
                 <td>{{ $book->sinopsis }}</td>
             </tr>

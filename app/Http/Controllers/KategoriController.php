@@ -18,8 +18,16 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::latest()->paginate(5);
 
-        return view('kategori.index',compact('kategori'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('kategori.index',compact('kategori'),, [
+            'title' => 'Kategori',
+        ]);
+    }
+
+     public function kategori()
+    {
+        $kategori = Kategori::latest()->paginate(5);
+
+        return view('kategori.index_anggota',compact('kategori'));
     }
 
     public function pdf()

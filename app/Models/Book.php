@@ -39,7 +39,7 @@ class Book extends Model
 
      public function peminjaman()
     {
-        return $this->hasMany('peminjaman::class');
+        return $this->hasOne('peminjaman::class');
     }
 
 }

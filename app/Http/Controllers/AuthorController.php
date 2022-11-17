@@ -18,7 +18,17 @@ class AuthorController extends Controller
     {
         $author = Author::latest()->paginate(5);
 
-        return view('author.index',compact('author'));
+        return view('author.index',compact('author'), [
+            'title' => 'Penulis',
+        ]);
+
+    }
+
+    public function penulis()
+    {
+        $author = Author::latest()->paginate(5);
+
+        return view('author.index_anggota',compact('author'));
 
     }
 

@@ -22,7 +22,18 @@ class BookController extends Controller
     {
         $book = Book::with('author', 'publisher', 'kategori')->paginate(10);
 
-        return view('book.index', compact('book'));
+        return view('book.index', compact('book'), [
+            'title' => 'Data Buku',
+        ]);
+
+
+    }
+
+    public function index_anggota()
+    {
+        $book = Book::with('author', 'publisher', 'kategori')->paginate(10);
+
+        return view('book.index_anggota', compact('book'));
 
 
     }
@@ -101,6 +112,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
+        
         return view('book.show',compact('book'));
     }
 

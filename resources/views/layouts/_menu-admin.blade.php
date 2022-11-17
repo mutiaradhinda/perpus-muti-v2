@@ -124,15 +124,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/logout" class="nav-link">
-            <form action="/logout" method="post">
+            <a href="{{url('/login')}}" class="nav-link">
               <i class="fa-solid fa-lock"></i>
               <p>
-                Logout
+                Login
               </p>
-            </form>
-          </a>
-          </li> 
-
+            </a>
+          </li>
+          
       </nav>
     </div>

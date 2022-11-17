@@ -66,26 +66,30 @@ Route::post('/register', [RegisterController::class, 'store']);
 //template
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
-//post
+//buku
 Route::resource('book', BookController::class);
 Route::get('/pdf', [BookController::class, 'pdf']);
 Route::get('/export data', [BookController::class, 'excel'])->name('book');
+Route::get('/buku', [BookController::class, 'index_anggota']);
 
 
 //penulis
 Route::resource('authors', AuthorController::class );
 Route::get('/export', [AuthorController::class, 'pdf']);
 Route::get('/excel', [AuthorController::class, 'excel'])->name('author');
+Route::get('/penulis', [AuthorController::class, 'penulis']);
 
 //penerbit
 Route::resource('publishers', PublisherController::class );
 Route::get('/penerbit', [PublisherController::class, 'pdf']);
 Route::get('/publisher', [PublisherController::class, 'excel'])->name('publishers');
+Route::get('/Penerbit', [PublisherController::class, 'penerbit']);
 
 //kategori
 Route::resource('kategori', KategoriController::class );
 Route::get('/data', [KategoriController::class, 'pdf']);
 Route::get('/data kategori', [KategoriController::class, 'excel'])->name('kategori');
+Route::get('/Kategori', [KategoriController::class, 'Kategori']);
 
 //peminjam
 Route::resource('peminjamen', PeminjamanController::class );

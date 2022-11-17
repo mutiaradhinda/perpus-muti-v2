@@ -28,7 +28,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="/dashboard" class="nav-link active">
+            <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? 'active':''}}">
               <i class="fa fa-tachometer" aria-hidden="true"></i>
               <p>
                 Dashboard
@@ -37,7 +37,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="/book" class="nav-link">
+            <a href="{{ url('buku') }}" class="nav-link {{ Request::is('buku') ? 'active':''}}">
               <i class="fa-solid fa-book"></i>
               <p>
                 Data Buku
@@ -47,7 +47,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('authors.index') }}" class="nav-link">
+            <a href="{{ url('penulis') }}" class="nav-link {{ Request::is('penulis') ? 'active':''}}">
               <i class="fa fa-pencil-alt"></i>
               <p>
                 Penulis
@@ -57,7 +57,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('publishers.index') }}" class="nav-link">
+            <a href="{{ url('Penerbit') }}" class="nav-link {{ Request::is('Penerbit') ? 'active':''}}">
               <i class="fa fa-building"></i>
               <p>
                   Penerbit
@@ -67,7 +67,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('kategori.index') }}" class="nav-link">
+            <a href="{{ url('Kategori') }}" class="nav-link {{ Request::is('Kategori') ? 'active':''}}">
               <i class="ion ion-pie-graph"></i>
               <p>
                 Kategori
@@ -76,10 +76,26 @@
           </li>
             
           <li class="nav-item">
-            <a href="{{ route('peminjamen.index') }}" class="nav-link">
+            <a href="{{ route('peminjamen.index') }}" class="nav-link {{ Request::is('peminjamen.index') ? 'active':''}}">
               <i class="fa-solid fa-bookmark"></i>
               <p>
                 Peminjam
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa-solid fa-lock"></i>
+              <p>
+                Ganti Password
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('/login')}}" class="nav-link">
+              <i class="fa-solid fa-lock"></i>
+              <p>
+                Login
               </p>
             </a>
           </li>

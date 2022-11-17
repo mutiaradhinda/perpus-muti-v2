@@ -20,3 +20,4 @@ class Peminjaman extends Model
         return $this->hasMany(Book::class, 'id_buku', 'id');
     }
 }
+

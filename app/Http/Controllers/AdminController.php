@@ -19,7 +19,9 @@ class AdminController extends Controller
     {
         $admin = User::with('role')->paginate(5);
 
-        return view('admin.index',compact('admin'));
+        return view('admin.index',compact('admin'), [
+            'title' => 'Admin',
+        ]);
 
     }
 
