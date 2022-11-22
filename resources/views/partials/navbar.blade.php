@@ -33,7 +33,7 @@
             <li><a class="dropdown-item" href="{{ url ('/dashboard') }}">My Dashboard</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
-              <form action="{{ url ('/logout') }}" method="post">
+              <form action="/logout" method="post">
                 @csrf
                 <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-in-right"></i>Logout</button>
               </form>

@@ -30,7 +30,7 @@
                   <strong>Penulis:</strong>
               </div>
               <div class="form-group">
-              <select class="form-control select2" style="width: 100%;" name="id_penulis" id="id_penulis">
+              <select class="theSelect" style="width: 100%;" name="id_penulis" id="id_penulis">
               <option disabled value>Pilih Penulis</option>
               @foreach($a as $item)
               <option value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -43,7 +43,7 @@
                   <strong>Penerbit:</strong>
               </div>
               <div class="form-group">
-              <select class="form-control select2" style="width: 100%;" name="id_penerbit" id="id_penerbit">
+              <select class="theSelect" style="width: 100%;" name="id_penerbit" id="id_penerbit">
               <option disabled value>Pilih Penerbit</option>
               @foreach($p as $item)
               <option value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -56,7 +56,7 @@
                   <strong>Kategori:</strong>
               </div>
           <div class="form-group">
-              <select class="form-control select2" style="width: 100%;" name="id_kategori" id="id_kategori">
+              <select class="theSelect" style="width: 100%;" name="id_kategori" id="id_kategori">
               <option disabled value>Pilih Kategori</option>
               @foreach($k as $item)
               <option value="{{ $item->id }}">{{ $item->kategori }}</option>
@@ -85,4 +85,6 @@
     </div>
   </div>
 </div>
+
+
 @endsection

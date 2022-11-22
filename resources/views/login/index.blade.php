@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
 
     <meta charset="utf-8">
@@ -25,8 +23,6 @@
 </head>
 
 <body class="bg-gradient-primary">
-
-  
   <div class="container">
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -37,7 +33,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 @if(session()->has('success'))
-                                <div class="alert alert-saccess alert-dismissible fade show" role="alert">
+                                <div class="alert alert-saccess alert-dismissible fade show" role="alert"> 
                                     {{ session('success') }}
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                     </button>
@@ -85,19 +81,15 @@
                                         <div class="text-center">
                                         <a class="small" href="{{ url ('/register') }}">Create an Account!</a>
                                         
-                                    </div>
-                                
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript-->
@@ -111,5 +103,4 @@
     <script src="/assets/js/sb-admin-2.min.js"></script>
 
 </body>
-
 </html>

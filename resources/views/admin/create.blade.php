@@ -28,7 +28,7 @@
                   <strong>User Role:</strong>
               </div>
           <div class="form-group">
-              <select class="form-control select2" style="width: 100%;" name="user_role" id="user_role" autofocus>
+              <select class="theSelect" style="width: 100%;" name="user_role" id="user_role" autofocus>
               <option disabled value>User Role</option>
               @foreach($u as $item)
               <option value="{{ $item->id }}">{{ $item->role }}</option>
