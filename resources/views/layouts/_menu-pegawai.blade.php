@@ -28,7 +28,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? 'active':''}}">
+            <a href="{{ url('/dashboard') }}" class="nav-link {{ Request::is('dashboard') ? 'active':''}}">
               <i class="fa fa-tachometer" aria-hidden="true"></i>
               <p>
                 Dashboard

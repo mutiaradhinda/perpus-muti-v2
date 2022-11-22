@@ -34,5 +34,23 @@ class Kategori extends Model
             ->get();
     }
 
+    public static function findarrayGrafikKategori()
+    {
+        $listKategori = Kategori::all();
+
+        $arrayData = [];
+
+
+
+        foreach ($listKategori as $key => $value) {
+            $arrayData = [
+                'name' => $value->id,
+                'y' => $value->nama,
+            ];
+        }
+
+        return $arrayData;
+    }
+
 
 }
