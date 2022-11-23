@@ -25,13 +25,12 @@
                   <input type="text" name="tahun_terbit" class="form-control" placeholder="">
               </div>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="col-xs-12 col-sm-6 col-md-12">
               <div class="form-group">
                   <strong>Penulis:</strong>
               </div>
-              <div class="form-group">
-              <select class="theSelect" style="width: 100%;" name="id_penulis" id="id_penulis">
-              <option disabled value>Pilih Penulis</option>
+              <div class="form-group" style="height: auto;">
+              <select class="js-example-basic-single" style="width: 100%;" name="id_penulis" id="id_penulis">
               @foreach($a as $item)
               <option value="{{ $item->id }}">{{ $item->nama }}</option>
               @endforeach
@@ -43,7 +42,7 @@
                   <strong>Penerbit:</strong>
               </div>
               <div class="form-group">
-              <select class="theSelect" style="width: 100%;" name="id_penerbit" id="id_penerbit">
+              <select class="js-example-basic-single" style="width: 100%;" name="id_penerbit" id="id_penerbit">
               <option disabled value>Pilih Penerbit</option>
               @foreach($p as $item)
               <option value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -56,7 +55,7 @@
                   <strong>Kategori:</strong>
               </div>
           <div class="form-group">
-              <select class="theSelect" style="width: 100%;" name="id_kategori" id="id_kategori">
+              <select class="js-example-basic-single" style="width: 100%;" name="id_kategori" id="id_kategori">
               <option disabled value>Pilih Kategori</option>
               @foreach($k as $item)
               <option value="{{ $item->id }}">{{ $item->kategori }}</option>

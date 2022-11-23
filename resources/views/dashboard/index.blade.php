@@ -35,7 +35,6 @@
                 <h3>{{ $penerbit }}</h3>
                 <p>Jumlah Penerbit</p>
               </div>
-
               <div class="icon">
                 <i class="nav-icon fas fa-building"></i>
               </div>
