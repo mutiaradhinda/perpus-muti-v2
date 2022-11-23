@@ -14,11 +14,11 @@
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
-   <?php if(Auth::user()->id_user_role == 1){ ?>
+    <?php if(Auth::User()->id_user_role == 1){ ?>
       @include('/layouts/_menu-admin')
     <?php } ?>
     
-    <?php if(Auth::user()->id_user_role == 2){ ?>
+    <?php if(Auth::User()->id_user_role == 2){ ?>
       @include('/layouts/_menu-pegawai')
     <?php } ?>
 

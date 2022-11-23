@@ -259,19 +259,7 @@ Highcharts.chart('kategori', {
     series: [{
         name: 'kategori',
         colorByPoint: true,
-        data: [{
-            name: 'Self Improvement',
-            y: 30
-        },  {
-            name: 'Fiksi',
-            y: 25
-        }, {
-            name: 'Komik',
-            y: 20
-        }, {
-            name: 'Sastra Klasik',
-            y: 20
-        }]
+        data: app\Models\Kategori::findarrayGrafikKategori();
     }]
 });
 </script>
