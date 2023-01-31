@@ -76,7 +76,7 @@
           </li>
             
           <li class="nav-item">
-            <a href="{{ route('peminjamen.index') }}" class="nav-link">
+            <a href="{{ route('peminjaman.index') }}" class="nav-link">
               <i class="fa-solid fa-bookmark"></i>
               <p>
                 Peminjam

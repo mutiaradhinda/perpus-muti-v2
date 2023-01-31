@@ -8,11 +8,6 @@
         <h2 class="card-title">Data Penerbit</h2>
     </div>
 
- <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <a href="{{ route('publishers.index') }}" class="btn btn-primary btn-sm">Kembali</a>
-    </div>
-
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -58,6 +53,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
                 <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="{{ route('publishers.index') }}" class="btn btn-warning">Kembali</a>
         </div>
     </div>
 

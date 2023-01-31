@@ -2,11 +2,11 @@
 
 @section('content')
 
- <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <a href="{{ route('peminjamen.index') }}" class="btn btn-primary btn-sm">Kembali</a>
+<div class="card card-primary">
+    <div class="card-header">
+        <h2 class="card-title">Create Data Penulis</h2>
     </div>
-
+ 
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -19,16 +19,15 @@
 @endif
     
     <div class="card-body">
-    <form action="{{ route('peminjamen.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('peminjaman.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Buku:</strong>
             </div>
             <div class="form-group">
-            <select class="form-control select2" style="width: 100%;" name="id_buku" id="id_buku">
+            <select class="js-example-basic-single" style="width: 100%;" name="id_buku" id="id_buku">
             <option disabled value>Pilih Buku</option>
             @foreach($b as $item)
             <option value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -68,9 +67,9 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
                 <button type="submit" class="btn btn-primary">Create</button>
+                <a href="{{ route('peminjaman.index') }}" class="btn btn-warning">Kembali</a>
         </div>
     </div>
-
 </form>
 </div>
 @endsection

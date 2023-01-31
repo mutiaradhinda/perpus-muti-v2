@@ -8,7 +8,7 @@
     </div>
     <div class="card shadow mb-4">
 <div class="card-header py-3">
-    <a href="{{ route('peminjamen.index') }}" class="btn btn-primary btn-sm">Kembali</a>
+    <a href="{{ route('peminjaman.index') }}" class="btn btn-primary btn-sm">Kembali</a>
 
     </div>
     <div class="card-body">

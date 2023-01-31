@@ -4,11 +4,6 @@
    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 borde-bottom">
 </div>
 
-<div class="card shadow mb-4">
-<div class="card-header py-3">
-    <a href="{{ route('peminjamen.index') }}" class="btn btn-primary btn-sm">Kembali</a>
-</div>
-
 @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -21,7 +16,7 @@
     @endif
 
 <div class="card-body">
-<form action="{{ route('peminjamen.update',$peminjaman->id) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('peminjaman.update',$peminjaman->id) }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
 
@@ -65,6 +60,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
                 <button type="submit" class="btn btn-primary">Edit</button>
+                <a href="{{ route('peminjaman.index') }}" class="btn btn-warning">Kembali</a>
         </div>
     </div>
 

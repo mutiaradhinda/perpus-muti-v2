@@ -23,7 +23,7 @@
 
     <div class="card-body">
         <div style="margin-bottom: 20px">
-            <a href="{{ route('peminjamen.create') }}" class="btn btn-primary btn-flat">
+            <a href="{{ route('peminjaman.create') }}" class="btn btn-primary btn-flat">
                 <i class="fa fa-plus-circle"></i> Tambah Data
             </a>
             <a href="{{ url('export') }}" class="btn btn-danger btn-flat">
@@ -55,11 +55,11 @@
                     <td>{{ $value->denda }}</td>
                     <td>{{ $value->status }}</td>
                 <td>
-                <form action="{{ route('peminjamen.destroy',$value->id) }}" method="POST">
+                <form action="{{ route('peminjaman.destroy',$value->id) }}" method="POST">
          
-                    <a class="btn btn-info" href="{{ route('peminjamen.show',$value->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('peminjaman.show',$value->id) }}">Show</a>
           
-                    <a class="btn btn-primary" href="{{ route('peminjamen.edit',$value->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('peminjaman.edit',$value->id) }}">Edit</a>
          
                         @csrf
                         @method('DELETE')

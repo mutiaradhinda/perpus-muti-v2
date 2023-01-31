@@ -92,7 +92,7 @@ Route::get('/data kategori', [KategoriController::class, 'excel'])->name('katego
 Route::get('/Kategori', [KategoriController::class, 'Kategori']);
 
 //peminjam
-Route::resource('peminjamen', PeminjamanController::class );
+Route::resource('peminjaman', PeminjamanController::class );
 
 //user
 Route::resource('penggunas', PenggunaController::class );

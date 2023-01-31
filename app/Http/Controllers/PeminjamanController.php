@@ -54,7 +54,7 @@ class PeminjamanController extends Controller
 
         Peminjaman::create($input);
 
-        return redirect()->route('peminjamen.index')
+        return redirect()->route('peminjaman.index')
                         ->with('success','Post created successfully.');
     }
 
@@ -103,7 +103,7 @@ class PeminjamanController extends Controller
 
         $peminjaman->update($input);
 
-        return redirect()->route('peminjamen.index')
+        return redirect()->route('peminjaman.index')
                         ->with('success','Post updated successfully');
     }
 
@@ -117,7 +117,7 @@ class PeminjamanController extends Controller
     {
         $peminjaman->delete();
 
-        return redirect()->route('peminjamen.index')
+        return redirect()->route('peminjaman.index')
                         ->with('success','Post deleted successfully');
     }
 }
